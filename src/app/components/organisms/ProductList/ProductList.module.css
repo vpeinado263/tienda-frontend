@@ -1,0 +1,29 @@
+ .productGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .productCard {
+    padding: 0.75rem;
+  }
+
+  .productCard h2 {
+    font-size: 1.25rem;
+  }
+
+  .productCard p {
+    font-size: 0.9rem;
+  }
+
+  .productCard .price {
+    font-size: 1rem;
+  }
+
+  .productCard button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    background-color: aliceblue;
+  }
+
+
+
+

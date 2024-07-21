@@ -1,0 +1,17 @@
+.carouselContainer {
+  width: 100%;
+}
+
+.carouselButton {
+  top: 50%;
+  font-size: 4em;
+  color: #770c0c; 
+}
+
+.buttonLeft {
+  left: 1rem;
+}
+
+.buttonRight {
+  right: 2rem; 
+}

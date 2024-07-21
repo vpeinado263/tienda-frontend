@@ -1,0 +1,25 @@
+.accountButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icon {
+  margin-right: 0.1rem; 
+}
+
+.text {
+  color: aliceblue;
+  font-size: 1.1em;
+  padding: 0.4rem; 
+}
+
+.FaUser {
+  color: aliceblue;
+}

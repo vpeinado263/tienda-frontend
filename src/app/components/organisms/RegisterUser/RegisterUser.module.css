@@ -1,0 +1,70 @@
+/* RegisterUser.module.css */
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 30rem;
+  align-items: center;
+  color: #eee6e6;
+  transition: background-color 0.3s ease; 
+  box-shadow: 0 0.1rem 2rem rgb(86, 82, 105);
+  width: 100%;
+}
+
+.h1 {
+  font-size: 2em;
+  color: #000000;
+}
+
+.h2 {
+  font-size: 1em;
+  color: #0a0909;
+  padding: 1rem;
+}
+
+.form {
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease; 
+  box-shadow: 0 5rem 10rem 2rem rgb(5, 5, 5);
+  background-color: #ffffff;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  border: solid #bbaeae;
+  border-radius: 0.5rem;
+}
+
+.buttonRegister {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buttonRegister:hover {
+  background-color: #0056b3;
+}
+
+.alert {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #0026ff;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #ff0019;
+}

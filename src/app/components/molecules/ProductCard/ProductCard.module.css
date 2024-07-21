@@ -1,0 +1,29 @@
+.productCard {
+    display: inline-block;
+    margin: 0.1rem;
+    width: auto;
+    background-color: aliceblue;
+    border-radius: 1rem;
+  }
+  
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .image {
+    height: auto;
+    max-width: 100%;
+    border-top-left-radius: auto;
+    border-top-right-radius: auto;
+    image-rendering: auto;
+  }
+  
+  .addToCartButton {
+    margin-top: 1rem;
+    background-color: rgb(111, 111, 209);
+    color: rgb(247, 225, 225);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.5rem;
+    font-size: 1em;
+  }

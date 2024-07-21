@@ -1,0 +1,46 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+body {
+  background-color: #000000;
+  background-image: radial-gradient(circle, #fff4f4, #000000);
+}
+
+@media screen and (max-width: 768px) {
+
+  .welcome-container,
+  .spinner-container {
+      height: auto; 
+  }
+  body {
+    background-image: radial-gradient(circle, #d80505, #000000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70rem;
+    width: auto;
+  }
+  
+  .welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000;
+    background-image: url(../../public/LogoWhiteFloating2.png), linear-gradient(to right, #521e1e, #000000, #020202, #923232);
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center; 
+  }
+}
+
+
