@@ -17,7 +17,7 @@ const RegisterUsers: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post<RegisterResponse>("http://localhost:8080/api/users/", {
+      const response = await axios.post<RegisterResponse>("", {
         username,
         email,
         password,

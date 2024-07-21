@@ -22,7 +22,7 @@ const ProductList = () => {
 
   const fetchProducts = async (searchTerm = '') => {
     try {
-      const response = await axios.get(`http://localhost:8080/products?search=${searchTerm}`);
+      const response = await axios.get(`${searchTerm}`);
       setProducts(response.data.data);
     } catch (error) {
       setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
@@ -31,7 +31,7 @@ const ProductList = () => {
   };
 
   const handleAddToCart = (product: Product) => {
-    // Aquí puedes implementar la lógica para añadir el producto al carrito
+    
     console.log(`Añadido al carrito: ${product.name}`);
   };
 

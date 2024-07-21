@@ -7,7 +7,7 @@ import styles from './AccountButton.module.css';
 const AccountButton = () => {
   const [isLoggedIn] = useState(false);
   const handleLogout = () => {
-    axios.delete('http://localhost:8080/session/logout')
+    axios.delete('')
       .then(response => {
         console.log(response.data);
         window.location.href = '/';

@@ -11,7 +11,7 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
 
   useEffect(() => {
     
-    axios.get('http://localhost:8080/products/count')
+    axios.get('')
       .then(response => {
         setProductosDisponibles(response.data.count);
       })

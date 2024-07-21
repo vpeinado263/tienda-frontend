@@ -16,7 +16,7 @@ const Login = ({ setToken }: Props ) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post<{ token: string }>('http://localhost:8080/api/session/login', {
+      const response = await axios.post<{ token: string }>('', {
         username,
         password,    
       });

@@ -11,12 +11,12 @@ const NavBar = () => {
   const [productIdToDelete, setProductIdToDelete] = useState('');
 
   const handleProductDeleted = () => {
-    // Lógica para manejar la UI después de eliminar el producto
+   
     console.log('Producto eliminado');
   };
 
   const handleProductosDisponiblesClick = () => {
-    // Lógica para manejar el clic en el botón de productos disponibles
+    
     console.log('Clic en productos disponibles');
   };
 
