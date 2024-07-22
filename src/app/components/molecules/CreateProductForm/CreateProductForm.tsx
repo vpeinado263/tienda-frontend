@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './CreateProductForm.module.css';
 
-const CreateProductForm: React.FC = () => {
+const CreateProductForm = () => {
   const [product, setProduct] = useState({
     _id: '',
     name: '',
