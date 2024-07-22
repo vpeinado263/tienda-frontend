@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import styles from './ProductosDisponiblesButton.module.css';
 
 interface ProductosDisponiblesButtonProps {
@@ -10,6 +11,7 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
   const [productosDisponibles, setProductosDisponibles] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     axios.get('https://mi-back-end.onrender.com/products/count')
@@ -24,8 +26,15 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
       });
   }, []);
 
+  const handleClick = () => {
+    router.push('/products');
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <button className={styles.disponible} onClick={onClick}>
+    <button className={styles.disponible} onClick={handleClick}>
       {loading ? (
         <span className={styles.span}>Cargando...</span>
       ) : error ? (
