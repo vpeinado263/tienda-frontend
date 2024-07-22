@@ -20,7 +20,7 @@ const ProductList = () => {
     fetchProducts(); // Llama a la función para obtener los productos al cargar el componente
   }, []);
 
-  const fetchProducts = async (searchTerm = '') => {
+  const fetchProducts = async () => {
     try {
       const response = await axios.get('/products'); // Cambia esto a la URL correcta para obtener todos los productos
       setProducts(response.data.data);
