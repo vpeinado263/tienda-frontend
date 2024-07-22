@@ -11,7 +11,7 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
 
   useEffect(() => {
     // Reemplaza la URL con el endpoint correcto para obtener el conteo de productos
-    axios.get('https://mi-back-end.onrender.com/products/count')
+    axios.get('https://mi-back-end.onrender.com/api/products/count')
       .then(response => {
         setProductosDisponibles(response.data.count); // Asegúrate de que `response.data.count` sea el formato correcto
       })
