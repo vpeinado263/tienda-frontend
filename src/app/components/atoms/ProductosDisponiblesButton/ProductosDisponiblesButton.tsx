@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios'; // Usa el axios configurado o la URL correcta
 import styles from './ProductosDisponiblesButton.module.css';
 
 interface ProductosDisponiblesButtonProps {
@@ -10,9 +10,10 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
   const [productosDisponibles, setProductosDisponibles] = useState<number>(0);
 
   useEffect(() => {
+    // Reemplaza la URL con el endpoint correcto para obtener el conteo de productos
     axios.get('https://mi-back-end.onrender.com/products/count')
       .then(response => {
-        setProductosDisponibles(response.data.count);
+        setProductosDisponibles(response.data.count); // Asegúrate de que `response.data.count` sea el formato correcto
       })
       .catch(error => {
         console.error('Error al obtener la cantidad de productos disponibles:', error);
@@ -27,3 +28,4 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
 };
 
 export default ProductosDisponiblesButton;
+
