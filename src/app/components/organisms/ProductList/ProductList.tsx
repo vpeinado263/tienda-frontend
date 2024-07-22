@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../../../utils/axios';
+import axios from 'axios';
 import styles from './ProductList.module.css';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 
@@ -20,7 +20,7 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = async (searchTerm = '') => {
+  const fetchProducts = async (searchTerm = 'https://mi-back-end.onrender.com/products') => {
     try {
       const response = await axios.get(`${searchTerm}`);
       setProducts(response.data.data);
