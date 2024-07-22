@@ -10,10 +10,10 @@ interface EliminarProductoButtonProps {
 const EliminarProductoButton: React.FC<EliminarProductoButtonProps> = ({ productId, onProductDeleted }) => {
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`/${productId}`);
+      const response = await axios.delete(`https://mi-back-end.onrender.com/products/${productId}`);
       if (response.status === 200) {
         alert('Producto eliminado exitosamente');
-        onProductDeleted(); // Llama a la función de callback para actualizar la UI
+        onProductDeleted(); 
       } else {
         alert('Error al eliminar el producto');
       }

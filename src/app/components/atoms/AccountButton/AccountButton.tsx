@@ -7,7 +7,7 @@ import styles from './AccountButton.module.css';
 const AccountButton = () => {
   const [isLoggedIn] = useState(false);
   const handleLogout = () => {
-    axios.delete('')
+    axios.delete('https://mi-back-end.onrender.com/logout')
       .then(response => {
         console.log(response.data);
         window.location.href = '/';

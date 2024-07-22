@@ -4,20 +4,20 @@ import Link from 'next/link';
 import AccountButton from '../../atoms/AccountButton/AccountButton';
 import StoreButton from '../../atoms/StoreButton/StoreButton';
 import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/ProductosDisponiblesButton';
-import AgregarProductoButton from '../../atoms/AgegarProductoButton/AgegarProductoButton';
+import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton'; // Corrección del nombre del archivo
 import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
 
 const NavBar = () => {
-  const [productIdToDelete, setProductIdToDelete] = useState('');
+  const [productIdToDelete, setProductIdToDelete] = useState<string>('');
 
   const handleProductDeleted = () => {
-   
     console.log('Producto eliminado');
+    // Aquí podrías añadir lógica para actualizar la UI si es necesario
   };
 
   const handleProductosDisponiblesClick = () => {
-    
     console.log('Clic en productos disponibles');
+    // Aquí podrías añadir lógica para redirigir a una página de lista de productos
   };
 
   return (
@@ -29,7 +29,7 @@ const NavBar = () => {
       <div className={styles.bottom1}>
         <Link href="/products/productListPage">
           <span className={styles.section}>
-            <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick}/>
+            <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick} />
           </span>
         </Link>
       </div>

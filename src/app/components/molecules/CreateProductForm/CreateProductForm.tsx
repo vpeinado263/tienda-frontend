@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './CreateProductForm.module.css';
 
-const CreateProductForm = () => {
+const CreateProductForm: React.FC = () => {
   const [product, setProduct] = useState({
     _id: '',
     name: '',
@@ -23,7 +23,7 @@ const CreateProductForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://mi-back-end.onrender.com/products', product);
+      const response = await axios.post('https://mi-back-end.onrender.com/products', product); // Actualiza con el endpoint real
       if (response.data.success) {
         alert('Producto creado exitosamente');
         setProduct({
@@ -126,5 +126,6 @@ const CreateProductForm = () => {
 };
 
 export default CreateProductForm;
+
 
 

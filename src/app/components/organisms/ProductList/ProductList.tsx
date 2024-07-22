@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../../../utils/axios'; // Asegúrate de que esta configuración sea correcta
 import styles from './ProductList.module.css';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 
@@ -17,13 +17,12 @@ const ProductList = () => {
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(); // Llama a la función para obtener los productos al cargar el componente
   }, []);
 
-  const fetchProducts = async (url = '/api/products') => {
+  const fetchProducts = async (searchTerm = '') => {
     try {
-      // Realizar la solicitud a la URL proporcionada
-      const response = await axios.get(url);
+      const response = await axios.get('/products'); // Cambia esto a la URL correcta para obtener todos los productos
       setProducts(response.data.data);
     } catch (error) {
       setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
@@ -33,6 +32,7 @@ const ProductList = () => {
 
   const handleAddToCart = (product: Product) => {
     console.log(`Añadido al carrito: ${product.name}`);
+    // Aquí podrías agregar lógica para añadir el producto al carrito
   };
 
   return (
@@ -49,7 +49,6 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
 
 
 
