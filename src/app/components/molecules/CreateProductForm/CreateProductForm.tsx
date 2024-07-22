@@ -23,7 +23,7 @@ const CreateProductForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('', product);
+      const response = await axios.post('https://mi-back-end.onrender.com/products', product);
       if (response.data.success) {
         alert('Producto creado exitosamente');
         setProduct({
