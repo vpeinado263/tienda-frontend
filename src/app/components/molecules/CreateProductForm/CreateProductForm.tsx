@@ -7,9 +7,9 @@ const CreateProductForm = () => {
     _id: '',
     name: '',
     description: '',
-    price: '',
+    price: 0,
     imageUrl: '',
-    quantity: ''
+    quantity: 0
   });
   const [error, setError] = useState('');
 
@@ -30,9 +30,9 @@ const CreateProductForm = () => {
           _id: '',
           name: '',
           description: '',
-          price: '',
+          price: 0,
           imageUrl: '',
-          quantity: ''
+          quantity: 0
         });
         setError('');
       } else {
