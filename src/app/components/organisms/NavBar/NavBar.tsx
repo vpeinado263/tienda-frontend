@@ -8,7 +8,7 @@ import AgregarProductoButton from '../../atoms/AgegarProductoButton/AgegarProduc
 import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
 
 const NavBar = () => {
-  const [productIdToDelete, setProductIdToDelete] = useState('https://mi-back-end.onrender.com/poducts');
+  const [productIdToDelete, setProductIdToDelete] = useState('');
 
   const handleProductDeleted = () => {
    

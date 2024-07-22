@@ -20,10 +20,10 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = async (searchTerm = 'https://mi-back-end.onrender.com/products') => {
+  const fetchProducts = async (url = '/api/products') => {
     try {
       // Realizar la solicitud a la URL proporcionada
-      const response = await axios.get(searchTerm);
+      const response = await axios.get(url);
       setProducts(response.data.data);
     } catch (error) {
       setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
@@ -49,7 +49,6 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
 
 
 

@@ -5,7 +5,6 @@ const DeleteProductPage = () => {
   const [productId, setProductId] = useState('');
 
   const handleProductDeleted = () => {
-    // Lógica para manejar la UI después de eliminar el producto
     console.log('Producto eliminado');
     setProductId('');
   };

@@ -3,14 +3,15 @@ import axios from 'axios';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    // URL de la API backend
-    const response = await axios.get('https://mi-back-end.onrender.com/products'); 
+    // Realiza una solicitud GET a tu backend
+    const response = await axios.get('https://mi-back-end.onrender.com/products');
     
-    // Enviar la respuesta de la API a la respuesta de la solicitud
+    // Responde con los datos obtenidos de tu backend
     res.status(200).json(response.data);
   } catch (error) {
-    // Manejar errores de manera más informativa
     console.error('Error al obtener productos:', error);
+    
+    // Responde con un error en caso de fallo
     res.status(500).json({ error: 'Failed to fetch products' });
   }
 };

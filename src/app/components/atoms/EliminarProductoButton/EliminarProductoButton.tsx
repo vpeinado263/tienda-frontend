@@ -4,7 +4,7 @@ import styles from './EliminarProductoButton.module.css';
 
 interface EliminarProductoButtonProps {
   productId: string;
-  onProductDeleted: () => void; // Prop para manejar la eliminación del producto en la UI
+  onProductDeleted: () => void; 
 }
 
 const EliminarProductoButton: React.FC<EliminarProductoButtonProps> = ({ productId, onProductDeleted }) => {
