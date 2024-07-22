@@ -12,9 +12,9 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get('https://mi-back-end.onrender.com/products')
+    axios.get('https://mi-back-end.onrender.com/products/count')
       .then(response => {
-        setProductosDisponibles(response.data.length);
+        setProductosDisponibles(response.data.count); // Asume que la respuesta contiene la cantidad en la propiedad `count`
         setLoading(false);
       })
       .catch(error => {
@@ -32,7 +32,7 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
         <span className={styles.span}>{error}</span>
       ) : (
         <>
-          <span className={styles.span}>Productos Disponibles</span> {productosDisponibles}
+          <span className={styles.span}>Productos Disponibles:</span> {productosDisponibles}
         </>
       )}
     </button>
@@ -40,4 +40,3 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
 };
 
 export default ProductosDisponiblesButton;
-
