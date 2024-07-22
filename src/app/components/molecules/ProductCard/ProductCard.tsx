@@ -33,6 +33,11 @@ const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
         )}
         <p>Descripción: {product.description}</p>
         <p>Cantidad: {product.quantity}</p>
+        <button
+          className="mt-2 p-2 bg-blue-500 text-white rounded"
+          onClick={() => onAddToCart(product)}
+        >
+        </button>
       </div>
     </div>
   );
