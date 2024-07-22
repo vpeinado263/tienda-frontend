@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Usa el axios configurado o la URL correcta
+import axios from 'axios';
+import Link from 'next/link'; // Importa Link para navegación
 import styles from './ProductosDisponiblesButton.module.css';
 
 interface ProductosDisponiblesButtonProps {
@@ -26,9 +27,11 @@ const ProductosDisponiblesButton = ({ onClick }: ProductosDisponiblesButtonProps
   }, []);
 
   return (
-    <button className={styles.disponible} onClick={onClick}>
-      <span className={styles.span}>Productos Disponibles</span> {productosDisponibles}
-    </button>
+    <Link href="/products/productListPage" passHref>
+      <button className={styles.disponible} onClick={onClick}>
+        <span className={styles.span}>Productos Disponibles</span> {productosDisponibles}
+      </button>
+    </Link>
   );
 };
 
