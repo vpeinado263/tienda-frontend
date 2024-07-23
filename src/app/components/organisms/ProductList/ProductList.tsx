@@ -31,7 +31,6 @@ const ProductList = () => {
   };
 
   const handleAddToCart = (product: Product) => {
-    // Aquí puedes implementar la lógica para añadir el producto al carrito
     console.log(`Añadido al carrito: ${product.name}`);
   };
 

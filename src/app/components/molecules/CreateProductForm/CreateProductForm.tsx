@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './CreateProductForm.module.css';
 
-const CreateProductForm: React.FC = () => {
+const CreateProductForm = () => {
   const [product, setProduct] = useState({
     _id: '',
     name: '',
     description: '',
-    price: '',
+    price: 0,
     imageUrl: '',
-    quantity: ''
+    quantity: 0
   });
   const [error, setError] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setProduct({
-      ...product,
-      [event.target.name]: event.target.value
-    });
+    const { name, value } = event.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: name === 'price' || name === 'quantity' ? parseFloat(value) : value
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,20 +31,20 @@ const CreateProductForm: React.FC = () => {
           _id: '',
           name: '',
           description: '',
-          price: '',
+          price: 0,
           imageUrl: '',
-          quantity: ''
+          quantity: 0
         });
         setError('');
       } else {
-        setError(response.data.error);
+        setError(response.data.error || 'Error desconocido al crear el producto');
       }
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
-        setError('Error al crear el producto');
+        setError(`Error al crear el producto: ${err.response?.data || err.message}`);
         console.error(err.response?.data || err.message);
       } else {
-        setError('Error desconocido');
+        setError('Error desconocido al crear el producto');
         console.error(err);
       }
     }
@@ -89,7 +90,7 @@ const CreateProductForm: React.FC = () => {
           <label className={styles.formLabel} htmlFor="price">Precio</label>
           <input
             className={styles.formInput}
-            type="text"
+            type="number"
             id="price"
             name="price"
             value={product.price}
@@ -111,7 +112,7 @@ const CreateProductForm: React.FC = () => {
           <label className={styles.formLabel} htmlFor="quantity">Cantidad</label>
           <input
             className={styles.formInput}
-            type="text"
+            type="number"
             id="quantity"
             name="quantity"
             value={product.quantity}
@@ -126,7 +127,6 @@ const CreateProductForm: React.FC = () => {
 };
 
 export default CreateProductForm;
-
 
 
 
