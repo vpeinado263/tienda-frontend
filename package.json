@@ -9,7 +9,8 @@
     "start": "next dev -p 3000",
     "build": "next build",
     "build:styles": "tailwindcss build styles.css -o output.css",
-    "lint": "next lint"
+    "lint": "next lint",
+    "proxy": "https://mi-back-end.onrender.com"
   },
   "dependencies": {
     "autoprefixer": "^10.4.19",
