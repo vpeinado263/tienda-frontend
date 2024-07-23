@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../../../utils/axios';
+import axios from 'axios';
 import styles from './ProductList.module.css';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 
@@ -22,7 +22,8 @@ const ProductList = () => {
 
   const fetchProducts = async (searchTerm = '') => {
     try {
-      const response = await axios.get(`/products?search=${searchTerm}`);
+      const response = await axios.get(`https://mi-back-end.onrender.com/products?search=${searchTerm}`);
+      console.log(response.data);
       setProducts(response.data.data);
     } catch (error) {
       setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
