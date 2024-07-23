@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './CreateProductForm.module.css';
 
-const CreateProductForm = () => {
+const CreateProductForm: React.FC = () => {
   const [product, setProduct] = useState({
     _id: '',
     name: '',
     description: '',
-    price: 0,
+    price: '',
     imageUrl: '',
-    quantity: 0
+    quantity: ''
   });
   const [error, setError] = useState('');
 
@@ -30,9 +30,9 @@ const CreateProductForm = () => {
           _id: '',
           name: '',
           description: '',
-          price: 0,
+          price: '',
           imageUrl: '',
-          quantity: 0
+          quantity: ''
         });
         setError('');
       } else {
@@ -126,6 +126,7 @@ const CreateProductForm = () => {
 };
 
 export default CreateProductForm;
+
 
 
 
