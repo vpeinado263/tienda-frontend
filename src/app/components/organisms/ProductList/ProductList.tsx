@@ -22,7 +22,7 @@ const ProductList = () => {
 
   const fetchProducts = async (searchTerm = '') => {
     try {
-      const response = await axios.get(`https://mi-back-end.onrender.com/products?search=${searchTerm}`);
+      const response = await axios.get(`/products?search=${searchTerm}`);
       setProducts(response.data.data);
     } catch (error) {
       setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
