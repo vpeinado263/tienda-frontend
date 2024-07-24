@@ -22,7 +22,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('https://mi-back-end.onrender.com/api/products/');
+      const response = await axios.get('https://mi-back-end.onrender.com/api/products');
       console.log(response.data);
       setProducts(response.data);
     } catch (error) {
