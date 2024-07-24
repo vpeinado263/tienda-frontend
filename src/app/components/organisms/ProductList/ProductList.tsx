@@ -20,19 +20,15 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = async (searchTerm = '') => {
+  const fetchProducts = async () => {
     try {
-      const response = await axios.get(`https://mi-back-end.onrender.com/products?search=${searchTerm}`);
+      const response = await axios.get('https://mi-back-end.onrender.com/products/');
       console.log(response.data);
-      setProducts(response.data.data);
+      setProducts(response.data);
     } catch (error) {
       setError('Error al cargar los productos. Por favor, inténtalo de nuevo más tarde.');
       console.error('Error fetching products:', error);
     }
-  };
-
-  const handleAddToCart = (product: Product) => {
-    console.log(`Añadido al carrito: ${product.name}`);
   };
 
   return (
@@ -41,7 +37,7 @@ const ProductList = () => {
       {products.length === 0 && !error && <p className={styles.info}>No hay productos disponibles.</p>}
       <div className={styles.productGrid}>
         {products.map((product) => (
-          <ProductCard key={product._id} product={product} onAddToCart={handleAddToCart} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>

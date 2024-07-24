@@ -13,10 +13,9 @@ interface Product {
 
 interface Props {
   product: Product;
-  onAddToCart: (product: Product) => void;
 }
 
-const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
+const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <div className={styles.productCard}>
       <div className={`p-2 border border-gray-100 ${styles.cardContent}`}>
@@ -33,12 +32,6 @@ const ProductCard: React.FC<Props> = ({ product, onAddToCart }) => {
         )}
         <p>Descripción: {product.description}</p>
         <p>Cantidad: {product.quantity}</p>
-        <button
-          className="mt-2 p-2 bg-blue-500 text-white rounded"
-          onClick={() => onAddToCart(product)}
-        >
-          Añadir al carrito
-        </button>
       </div>
     </div>
   );
