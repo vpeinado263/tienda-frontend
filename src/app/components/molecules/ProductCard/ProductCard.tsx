@@ -7,7 +7,7 @@ interface Product {
   name: string;
   price: number;
   description: string;
-  imageUrl?: string;
+  imageUrl?: string; // Imagen es opcional
   quantity: number;
 }
 
@@ -26,8 +26,8 @@ const ProductCard: React.FC<Props> = ({ product }) => {
             src={product.imageUrl}
             alt={product.name}
             className={styles.image}
-            width={500}
-            height={300}
+            width={500} // Ajusta según tus necesidades
+            height={300} // Ajusta según tus necesidades
           />
         )}
         <p>Descripción: {product.description}</p>
@@ -38,9 +38,6 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 };
 
 export default ProductCard;
-
-
-
 
 
 

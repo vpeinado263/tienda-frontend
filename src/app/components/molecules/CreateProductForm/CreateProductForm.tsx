@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import styles from './CreateProductForm.module.css';
 
 const CreateProductForm = () => {
@@ -11,7 +10,7 @@ const CreateProductForm = () => {
     imageUrl: '',
     quantity: 0
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
@@ -24,25 +23,37 @@ const CreateProductForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://mi-back-end.onrender.com/products', product);
-      if (response.data.success) {
-        alert('Producto creado exitosamente');
-        setProduct({
-          _id: '',
-          name: '',
-          description: '',
-          price: 0,
-          imageUrl: '',
-          quantity: 0
-        });
-        setError('');
+      const response = await fetch('https://mi-back-end.onrender.com/api/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          alert('Producto creado exitosamente');
+          setProduct({
+            _id: '',
+            name: '',
+            description: '',
+            price: 0,
+            imageUrl: '',
+            quantity: 0
+          });
+          setError('');
+        } else {
+          setError(data.error || 'Error desconocido al crear el producto');
+        }
       } else {
-        setError(response.data.error || 'Error desconocido al crear el producto');
+        throw new Error('Error en la respuesta del servidor');
       }
-    } catch (err: unknown) {
-      if (axios.isAxiosError(err)) {
-        setError(`Error al crear el producto: ${err.response?.data || err.message}`);
-        console.error(err.response?.data || err.message);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(`Error al crear el producto: ${err.message}`);
+        console.error(err.message);
       } else {
         setError('Error desconocido al crear el producto');
         console.error(err);
@@ -127,6 +138,3 @@ const CreateProductForm = () => {
 };
 
 export default CreateProductForm;
-
-
-

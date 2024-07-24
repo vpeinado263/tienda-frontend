@@ -34,7 +34,7 @@ const Carousel = () => {
             &lt;
           </button>
           <div>
-            <Image src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} width={500} height={300} />
+            <Image src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} width={500} height={300} priority />
           </div>
           <button className={styles.carouselButton + ' ' + styles.buttonRight + ' absolute top-1/2 transform -translate-y-1/2 right-0 z-10'} onClick={nextSlide}>
             &gt;
