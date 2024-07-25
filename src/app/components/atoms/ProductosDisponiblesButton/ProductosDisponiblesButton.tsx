@@ -12,8 +12,14 @@ const ProductosDisponiblesButton: React.FC<ProductosDisponiblesButtonProps> = ({
   useEffect(() => {
     const fetchProductosDisponibles = async () => {
       try {
+        console.log('Fetching product count...');
         const response = await axiosInstance.get('/api/products/count');
-        setProductosDisponibles(response.data.count);
+        console.log('API response:', response);
+        if (response.data && response.data.count !== undefined) {
+          setProductosDisponibles(response.data.count);
+        } else {
+          console.error('API response does not contain count:', response.data);
+        }
       } catch (error) {
         if (error instanceof Error) {
           console.error('Error al obtener la cantidad de productos disponibles:', error.message);
@@ -34,5 +40,6 @@ const ProductosDisponiblesButton: React.FC<ProductosDisponiblesButtonProps> = ({
 };
 
 export default ProductosDisponiblesButton;
+
 
 

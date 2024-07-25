@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './NavBar.module.css';
 import Link from 'next/link';
-import AccountButton from '../../atoms/AccountButton/AccountButton';
 import StoreButton from '../../atoms/StoreButton/StoreButton';
 import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/ProductosDisponiblesButton';
 import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
@@ -11,12 +10,10 @@ const NavBar = () => {
   const [productIdToDelete, setProductIdToDelete] = useState('');
 
   const handleProductDeleted = () => {
-    // Lógica para manejar la UI después de eliminar el producto
     console.log('Producto eliminado');
   };
 
   const handleProductosDisponiblesClick = () => {
-    // Lógica para manejar el clic en el botón de productos disponibles
     console.log('Clic en productos disponibles');
   };
 
@@ -24,7 +21,6 @@ const NavBar = () => {
     <div className={styles.contenedor}>
       <nav className={styles.nav}>
         <StoreButton />
-        <AccountButton />
       </nav>
       <div className={styles.bottom1}>
         <Link href="/products/productListPage">
