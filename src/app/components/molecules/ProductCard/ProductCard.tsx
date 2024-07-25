@@ -13,7 +13,7 @@ interface Props {
 const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <div className={styles.productCard}>
-      <div className={`p-2 border border-gray-100 ${styles.cardContent}`}>
+      <div className={`p-9 border ${styles.cardContent}`}>
         <h2 className="text-lg font-bold">{product.name}</h2>
         <p>Precio: ${product.price}</p>
         {product.imageUrl && (
@@ -26,8 +26,8 @@ const ProductCard: React.FC<Props> = ({ product }) => {
           />
         )}
         <div className={styles.texto}>
-        <p>Descripción: {product.description}</p>
-        <p>Cantidad: {product.quantity}</p>
+        <p className={styles.texto1}>Descripción: {product.description}</p>
+        <p className={styles.texto1}>Cantidad disponible: {product.quantity}</p>
         <WhatsapButton/>
         </div>
       </div>
