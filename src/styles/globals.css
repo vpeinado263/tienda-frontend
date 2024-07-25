@@ -8,6 +8,16 @@ body {
   background-image: radial-gradient(circle, #fff4f4, #000000);
 }
 
+@media screen and (min-width: 300px) {
+  body {
+    background-image: radial-gradient(circle, #d80505, #000000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    width: auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
 
   .welcome-container,
