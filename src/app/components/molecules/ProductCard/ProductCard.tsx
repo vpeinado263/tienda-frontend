@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ProductCard.module.css';
 import Image from 'next/image';
 import { Product } from '../../../../typings/Product';
+import WhatsapButton from '../../atoms/WhatsappButton/WhatsappButton';
 
 
 
@@ -27,6 +28,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         <div className={styles.texto}>
         <p>Descripción: {product.description}</p>
         <p>Cantidad: {product.quantity}</p>
+        <WhatsapButton/>
         </div>
       </div>
     </div>
