@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from '../../molecules/ProductCard/ProductCard'; // Ajusta la ruta según la ubicación de tu archivo ProductCard.tsx
 import { Product } from '../../../../typings/Product'; // Ajusta la ruta según la ubicación de tu archivo Product.d.ts
+import styles from './ProductCard.module.css';
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -42,11 +43,12 @@ const ProductList: React.FC = () => {
 
   return (
     <div>
-      <h1>Productos Disponibles</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
+      </div>
       </div>
     </div>
   );

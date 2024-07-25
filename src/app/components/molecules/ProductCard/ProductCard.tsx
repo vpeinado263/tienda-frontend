@@ -1,15 +1,9 @@
 import React from 'react';
 import styles from './ProductCard.module.css';
 import Image from 'next/image';
+import { Product } from '../../../../typings/Product';
 
-interface Product {
-  _id: string;
-  name: string;
-  price: number;
-  description: string;
-  imageUrl?: string; // Imagen es opcional
-  quantity: number;
-}
+
 
 interface Props {
   product: Product;
@@ -30,8 +24,10 @@ const ProductCard: React.FC<Props> = ({ product }) => {
             height={300} // Ajusta según tus necesidades
           />
         )}
+        <div className={styles.texto}>
         <p>Descripción: {product.description}</p>
         <p>Cantidad: {product.quantity}</p>
+        </div>
       </div>
     </div>
   );
