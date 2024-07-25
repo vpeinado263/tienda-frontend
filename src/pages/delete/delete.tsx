@@ -11,13 +11,6 @@ const DeleteProductPage = () => {
 
   return (
     <div>
-      <h1>Eliminar Producto</h1>
-      <input
-        type="text"
-        placeholder="ID del producto a eliminar"
-        value={productId}
-        onChange={(e) => setProductId(e.target.value)}
-      />
       <EliminarProductoButton productId={productId} onProductDeleted={handleProductDeleted} />
     </div>
   );
