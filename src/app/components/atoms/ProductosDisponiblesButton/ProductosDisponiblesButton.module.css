@@ -1,17 +1,8 @@
-.conainer {
-  display: flex;
-  flex-direction: column;
-}
 .disponible {
     background-color: rgb(243, 100, 4);
     border-radius: 1rem;
     height: 3rem;
-    width: 29rem;
-}
-
-.icon {
-    background-color: aliceblue;
-    height: 2rem;
+    width: 13rem;
 }
 
 .span {

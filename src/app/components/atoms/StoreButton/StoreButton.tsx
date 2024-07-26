@@ -21,14 +21,12 @@ const StoreButton: React.FC = () => {
       <div className={styles.storeButton}>
         <button
           className={`${styles.button} ${isOn ? styles.buttonOn : styles.buttonOff}`}
-          aria-label="Botón de tienda"
-        >
+          aria-label="Botón de tienda">
           <Image
             src="/LogoColorFloating.png"
             alt="Logo de la tienda"
-            className={styles.img}
-            width={100}
-            height={300} // Ajusta esto según el tamaño de la imagen
+            width={80}
+            height={270} // Ajusta esto según el tamaño de la imagen
             priority
           />
         </button>

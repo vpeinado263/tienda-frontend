@@ -1,10 +1,8 @@
 .storeButton {
   cursor: pointer; 
-  
 }
 
 .button {
-  color: rgb(73, 187, 7);
   transition: background-color 0.5s; 
   border-radius: 1rem;
 }
@@ -19,9 +17,4 @@
   background-image: linear-gradient(to right, #000000, #FF6602);
   background-image: radial-gradient(circle, #030303, #000000); 
   border-radius: 2rem;
-}
-
-.img {
-  height: 6rem;
-  
 }

@@ -4,70 +4,59 @@
 
 /* Estilos Generales */
 body {
-  background-color: #000000;
   background-image: radial-gradient(circle, #d83333, #000000);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  margin: 0;
-  font-family: sans-serif; /* Añade una fuente base si es necesario */
+  font-family: sans-serif;
+  margin: 0; /* Asegúrate de que no haya márgenes en el body */
 }
 
-/* Estilos para dispositivos con ancho máximo de 300px (p.ej., teléfonos pequeños) */
-@media screen and (max-width: 300px) {
+/* Estilos para el contenedor del spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  background-image: url('/LogoWhiteFloating2.png'), linear-gradient(to right, #521e1e, #000000, #020202, #923232);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 2rem;
+}
+
+/* Media Queries */
+
+/* Dispositivos muy pequeños (menos de 100px) */
+@media screen and (max-width: 100px) {
   body {
     background-image: radial-gradient(circle, #d80505, #000000);
     background-size: cover;
-    background-position: center;
-  }
-  
-  .welcome-container,
-  .spinner-container {
-    height: auto;
-    width: 100%;
   }
 }
 
-/* Estilos para dispositivos con ancho máximo de 768px (p.ej., tablets y teléfonos) */
+/* Teléfonos (hasta 480px) */
+@media screen and (max-width: 480px) {
+  body {
+    background-image: radial-gradient(circle, #d80505, #000000);
+    background-size: cover;
+  }
+}
+
+/* Tablets y teléfonos grandes (hasta 768px) */
 @media screen and (max-width: 768px) {
   body {
     background-image: radial-gradient(circle, #d80505, #000000);
     background-size: cover;
-    background-position: center;
-    height: auto; /* Ajusta la altura para dispositivos móviles */
-  }
-
-  .welcome-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta la altura al viewport */
-  }
-
-  .spinner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #000000;
-    background-image: url('/LogoWhiteFloating2.png'), linear-gradient(to right, #521e1e, #000000, #020202, #923232);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
   }
 }
 
-/* Estilos para pantallas de PC (no es necesario especificar por defecto, pero puedes ajustar según sea necesario) */
+/* Pantallas grandes (más de 768px) */
 @media screen and (min-width: 769px) {
   body {
     background-image: radial-gradient(circle, #d83333, #000000);
     background-size: cover;
-    background-position: center;
-  }
-
-  
-
-  .spinner-container {
-    background-image: url('/LogoWhiteFloating2.png'), linear-gradient(to right, #521e1e, #000000, #020202, #923232);
   }
 }
