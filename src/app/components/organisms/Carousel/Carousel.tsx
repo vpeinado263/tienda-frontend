@@ -7,9 +7,6 @@ const images = [
   '/images/imgCarousel/prendas1.webp',
   '/images/imgCarousel/prendas2.webp',
   '/images/imgCarousel/prendas3.webp',
-  '/images/imgCarousel/prendas4.webp',
-  '/images/imgCarousel/prendas5.webp',
-  '/images/imgCarousel/prendas6.webp',
 ];
 
 const Carousel = () => {
