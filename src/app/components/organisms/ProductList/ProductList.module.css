@@ -1,0 +1,6 @@
+/* ProductList.module.css */
+@media (max-width: 767px) { /* Ajusta este valor según tus necesidades */
+    .hidden-mobile {
+      display: none;
+    }
+  }

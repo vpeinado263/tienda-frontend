@@ -4,7 +4,6 @@ import Link from 'next/link';
 import StoreButton from '../../atoms/StoreButton/StoreButton';
 import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/ProductosDisponiblesButton';
 import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
-import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
 
 const NavBar = () => {
   const [productIdToDelete, setProductIdToDelete] = useState('');
@@ -35,14 +34,6 @@ const NavBar = () => {
         </Link>
       </div>
       <div className={styles.bottom}>
-        <input
-          type="text"
-          placeholder="Numero de prenda"
-          value={productIdToDelete}
-          onChange={(e) => setProductIdToDelete(e.target.value)}
-          className={styles.numero}
-        />
-        <EliminarProductoButton productId={productIdToDelete} onProductDeleted={handleProductDeleted} />
       </div>
     </div>
   );

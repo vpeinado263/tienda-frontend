@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton'; // Importar el botón de eliminar
 import { Product } from '../../../../typings/Product';
+import styles from './ProductList.module.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -52,6 +53,7 @@ const ProductList = () => {
           <div key={product._id}>
             <ProductCard product={product} />
             <EliminarProductoButton
+              className={styles['hidden-mobile']} // Aplicar la clase para ocultar en móviles
               productId={product._id}
               onProductDeleted={handleProductDeleted}
             />
