@@ -11,7 +11,6 @@ const Home = () => {
     <main>
       <NavBar/>
       <Carousel/>
-      <WhatsapButton/>
       <ServicesSection/>
       <Footer/>
     </main>

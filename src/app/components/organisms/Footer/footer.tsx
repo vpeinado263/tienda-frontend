@@ -23,8 +23,7 @@ const Footer = () => {
         </div>
         <div className={styles.contacto}>
           <p>Tienda -x-</p>
-          <p><Link href="#"><span>Buscanos en Redes</span></Link></p>
-          <p><Link href="#"><span>Chateá con un asesor</span></Link></p>
+          <p><Link href="#"><span>Chatea con nosotros y realiza tu pedido</span></Link></p>
         </div>
       </div>
     </footer>

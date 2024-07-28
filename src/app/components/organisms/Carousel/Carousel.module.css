@@ -1,4 +1,4 @@
-/* Estilos Generales del Carrusel */
+
 .carouselContainer {
   width: 100%;
 }
@@ -7,10 +7,12 @@
   top: 50%;
   font-size: 4em;
   color: #770c0c; 
+ 
 }
 
 .buttonLeft {
   left: 1rem;
+  
 }
 
 .buttonRight {
