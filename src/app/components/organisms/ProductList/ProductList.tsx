@@ -53,7 +53,7 @@ const ProductList = () => {
           <div key={product._id}>
             <ProductCard product={product} />
             <EliminarProductoButton
-              className={styles['hidden-mobile']} // Aplicar la clase para ocultar en móviles
+              className={styles['hidden-mobile']}
               productId={product._id}
               onProductDeleted={handleProductDeleted}
             />

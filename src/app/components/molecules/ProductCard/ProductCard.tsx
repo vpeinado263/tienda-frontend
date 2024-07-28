@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { Product } from '../../../../typings/Product';
 import WhatsapButton from '../../atoms/WhatsappButton/WhatsappButton';
 
-
-
 interface Props {
   product: Product;
 }

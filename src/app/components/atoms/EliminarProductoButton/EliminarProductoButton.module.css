@@ -13,3 +13,8 @@
     background-color: #d3534f;
   }
   
+  @media (max-width: 300px) { 
+    .buttoneliminar {
+      display: none;
+    }
+  }
