@@ -37,9 +37,10 @@ const NavBar = () => {
       <div className={styles.bottom}>
         <input
           type="text"
-          placeholder="ID del producto a eliminar"
+          placeholder="Numero de prenda"
           value={productIdToDelete}
           onChange={(e) => setProductIdToDelete(e.target.value)}
+          className={styles.numero}
         />
         <EliminarProductoButton productId={productIdToDelete} onProductDeleted={handleProductDeleted} />
       </div>

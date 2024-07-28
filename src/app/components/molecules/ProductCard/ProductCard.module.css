@@ -24,7 +24,7 @@
   }
   
   .texto {
-    background-color: rgb(245, 98, 0);
+    background-color: rgb(255, 254, 253);
     border-end-end-radius: 5rem;
     border-start-start-radius: 0.1rem;
     border-width: 0.5rem;
@@ -32,6 +32,6 @@
   }
 
   .texto1 {
-    color: rgb(233, 229, 225);
+    color: rgb(0, 0, 0);
     font-size: 1.3em;
   }

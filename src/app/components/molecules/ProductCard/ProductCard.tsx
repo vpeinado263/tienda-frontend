@@ -21,8 +21,8 @@ const ProductCard: React.FC<Props> = ({ product }) => {
             src={product.imageUrl}
             alt={product.name}
             className={styles.image}
-            width={500} // Ajusta según tus necesidades
-            height={300} // Ajusta según tus necesidades
+            width={500} 
+            height={300} 
           />
         )}
         <div className={styles.texto}>

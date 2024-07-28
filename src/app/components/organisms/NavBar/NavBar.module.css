@@ -30,11 +30,14 @@
   background-color: #020408;
   padding: 1rem;
 }
+.numero {
+  border-radius: 0.2rem;
+  width: 9rem;
+}
 
 .section {
   color: #fff;
   text-decoration: none;
-  margin: 1rem; /* Ajuste del margen para dispositivos móviles */
   cursor: pointer;
 }
 

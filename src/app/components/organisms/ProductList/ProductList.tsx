@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProductCard from '../../molecules/ProductCard/ProductCard'; // Ajusta la ruta según la ubicación de tu archivo ProductCard.tsx
-import { Product } from '../../../../typings/Product'; // Ajusta la ruta según la ubicación de tu archivo Product.d.tss
+import ProductCard from '../../molecules/ProductCard/ProductCard'; 
+import { Product } from '../../../../typings/Product'; 
 
-const ProductList: React.FC = () => {
+const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

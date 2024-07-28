@@ -63,10 +63,10 @@ const CreateProductForm = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h2 className={styles.formTitle}>Crear Producto</h2>
+      <h2 className={styles.formTitle}>Prenda de vestir</h2>
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="_id">ID del Producto</label>
+          <label className={styles.formLabel} htmlFor="_id">Numero del Producto</label>
           <input
             className={styles.formInput}
             type="text"
@@ -77,7 +77,7 @@ const CreateProductForm = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="name">Nombre</label>
+          <label className={styles.formLabel} htmlFor="name">Titulo de la prenda</label>
           <input
             className={styles.formInput}
             type="text"
@@ -88,7 +88,7 @@ const CreateProductForm = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="description">Descripción</label>
+          <label className={styles.formLabel} htmlFor="description">Descripción General</label>
           <textarea
             className={styles.formInput}
             id="description"

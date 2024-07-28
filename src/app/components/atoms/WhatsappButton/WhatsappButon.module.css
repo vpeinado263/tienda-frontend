@@ -1,16 +1,4 @@
 .float {
-   background-color: #ffffff;
    position: fixed;
-   bottom: 6rem;
-   right: 3rem;
-   width: 4rem;
-   height: 4rem;
-   border-radius: 5rem;
-   box-shadow: 0.2rem 0.4rem 3rem #e7cece ;
-   transition: 0.2s;
-}
-
-.float:hover {
-   background-color: rgb(255, 233, 233);
-   transition: 0.2s;
+   position: static;
 }
