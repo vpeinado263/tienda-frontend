@@ -38,3 +38,4 @@ const EliminarProductoButton: React.FC<EliminarProductoButtonProps> = ({ product
 };
 
 export default EliminarProductoButton;
+
