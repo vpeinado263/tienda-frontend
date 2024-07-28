@@ -51,7 +51,7 @@ const CreateProductForm = () => {
           setError(data.error || 'Error desconocido al crear el producto');
         }
       } else {
-        throw new Error('Error en la respuesta del servidor');
+        throw new Error('El numero del producto ya existe');
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -112,7 +112,7 @@ const CreateProductForm = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="imageUrl">URL de la Imagen</label>
+          <label className={styles.formLabel} htmlFor="imageUrl">Pegar Direccion de Imagen</label>
           <input
             className={styles.formInput}
             type="text"
