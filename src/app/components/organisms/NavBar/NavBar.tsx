@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './NavBar.module.css';
 import Link from 'next/link';
 import StoreButton from '../../atoms/StoreButton/StoreButton';
@@ -6,12 +6,6 @@ import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/P
 import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
 
 const NavBar = () => {
-  const [productIdToDelete, setProductIdToDelete] = useState('');
-
-  const handleProductDeleted = () => {
-    console.log('Producto eliminado');
-  };
-
   const handleProductosDisponiblesClick = () => {
     console.log('Clic en productos disponibles');
   };
