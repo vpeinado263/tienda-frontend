@@ -27,7 +27,7 @@ function ProductCard ({ product } : Props) {
         <p className={styles.texto1}>Descripción: {product.description}</p>
         <p className={styles.texto1}>Cantidad disponible: {product.quantity}</p>
         <button className={styles.comprar}>
-          Comprar
+          Comprar  &rarr;
           <WhatsapButton/>
         </button>
         

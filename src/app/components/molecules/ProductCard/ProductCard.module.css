@@ -3,8 +3,8 @@
     margin: 0.1rem;
     width: auto;
     height: auto;
-    background-color: rgb(240, 65, 65);
-    border-radius: 1rem;
+    background-color: rgb(88, 181, 0);
+    border-radius: 0.5rem;
   }
   
   .cardContent {
@@ -38,11 +38,11 @@
 
   .comprar {
     height: 4rem;
-    background-color: rgb(26, 115, 232);
+    background-color: rgb(156, 238, 79);
     color: white;
     border: none;
     padding: 0.3rem 0.5rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
