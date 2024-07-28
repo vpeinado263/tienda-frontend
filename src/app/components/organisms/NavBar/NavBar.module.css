@@ -39,6 +39,11 @@
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  
+}
+
+.bottom1 {
+  text-align: center;
 }
 
 .section:hover {

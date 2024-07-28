@@ -1,20 +1,35 @@
-
 .carouselContainer {
+  position: relative;
   width: 100%;
+  max-width: 600px; /* Ajusta el tamaño máximo según tus necesidades */
+  margin: 0 auto;
+  overflow: hidden; /* Oculta cualquier contenido que sobresalga del contenedor */
+}
+
+.carouselImage {
+  width: 100%; /* La imagen se ajusta al ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block;
 }
 
 .carouselButton {
-  top: 50%;
-  font-size: 4em;
-  color: #770c0c; 
- 
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  color: white; /* Color del texto del botón */
+  border: none;
+  padding: 0.5rem; /* Espaciado interno del botón */
+  cursor: pointer;
+  font-size: 1.5rem; /* Tamaño del texto del botón */
+  border-radius: 0.25rem; /* Bordes redondeados */
 }
 
 .buttonLeft {
-  left: 1rem;
-  
+  left: 0;
 }
 
 .buttonRight {
-  right: 2rem; 
+  right: 0;
+}
+
+.carouselButton:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro al pasar el ratón */
 }
