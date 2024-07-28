@@ -1,3 +1,4 @@
+// src/pages/_app.tsx
 import '../styles/globals.css';
 import '../styles/styles.css'; 
 import type { AppProps } from 'next/app';
@@ -23,13 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         </div>
       )}
       {!loading && <Component {...pageProps} />}
-
       <ToastContainer/>
     </>
   );
 }
 
 export default MyApp;
-
-
 

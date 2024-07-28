@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './CreateProductForm.module.css';
 
 const CreateProductForm = () => {
@@ -11,6 +12,7 @@ const CreateProductForm = () => {
     quantity: 0
   });
   const [error, setError] = useState<string>('');
+  const router = useRouter(); 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
@@ -44,6 +46,7 @@ const CreateProductForm = () => {
             quantity: 0
           });
           setError('');
+          router.push('/products'); // Navega a la página de productos con useRouter
         } else {
           setError(data.error || 'Error desconocido al crear el producto');
         }
@@ -138,3 +141,4 @@ const CreateProductForm = () => {
 };
 
 export default CreateProductForm;
+

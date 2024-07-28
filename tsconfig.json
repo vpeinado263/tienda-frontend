@@ -25,7 +25,8 @@
     ],
     "types": [
       "@types/node",
-      "@types/react"
+      "@types/react",
+      "@types/react-router-dom" // Asegúrate de incluir este tipo
     ]
   },
   "include": [

@@ -10,7 +10,7 @@ const WhatsapButton = () => {
       <button>
         <Link href={'https://api.whatsapp.com/send?phone=+542612402016&text=Encargue:'} className={styles.float}>
         <div className="w-16 h-16">
-          <Image src="/icon/whatsapp.svg" alt="Chat " width={500} height={300}  />
+          <Image src="/icon/whatsapp.svg" alt="Chat " width={300} height={100}  />
         </div>
         </Link>
       </button>
