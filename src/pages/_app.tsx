@@ -1,6 +1,4 @@
-// src/pages/_app.tsx
 import '../styles/globals.css';
-import '../styles/styles.css'; 
 import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
 import { RingLoader } from 'react-spinners';
