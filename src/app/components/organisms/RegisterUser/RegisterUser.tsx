@@ -3,10 +3,11 @@ import axios from "axios";
 import styles from "./RegisterUser.module.css";
 
 interface RegisterResponse {
-  // Define los campos esperados en la respuesta si es necesario
+  success: boolean;
+  message: string;
 }
 
-const RegisterUsers: React.FC = () => {
+const RegisterUsers = () => {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -27,7 +28,6 @@ const RegisterUsers: React.FC = () => {
       setSuccessMessage("Usuario registrado con éxito.");
 
     } catch (error) {
-      // Tipo de error general
       if (error instanceof Error) {
         console.error("Error al registrar usuario", error.message);
         setErrorMessage("Error al registrar usuario. Por favor, inténtalo de nuevo.");

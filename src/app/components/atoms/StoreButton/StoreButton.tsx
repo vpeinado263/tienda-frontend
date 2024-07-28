@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './StoreButton.module.css';
 import Image from 'next/image';
 
-const StoreButton: React.FC = () => {
+const StoreButton = () => {
   const [isOn, setIsOn] = useState(false);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const StoreButton: React.FC = () => {
 
     const interval = setInterval(toggleColor, 1000);
 
-    return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonte
+    return () => clearInterval(interval); 
   }, []);
 
   return (

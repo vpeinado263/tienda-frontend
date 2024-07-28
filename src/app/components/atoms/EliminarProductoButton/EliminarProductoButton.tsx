@@ -2,14 +2,14 @@ import React from 'react';
 import axiosInstance from '../../../../utils/axiosInstance';
 import styles from './EliminarProductoButton.module.css';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos CSS
+import 'react-toastify/dist/ReactToastify.css';
 
 interface EliminarProductoButtonProps {
   productId: string;
   onProductDeleted: () => void; 
 }
 
-const EliminarProductoButton: React.FC<EliminarProductoButtonProps> = ({ productId, onProductDeleted }) => {
+function EliminarProductoButton({ productId, onProductDeleted } : EliminarProductoButtonProps) {
   const handleDelete = async () => {
     try {
       const response = await axiosInstance.delete(`/api/products/${productId}`);

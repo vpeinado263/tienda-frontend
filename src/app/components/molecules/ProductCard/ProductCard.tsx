@@ -8,7 +8,7 @@ interface Props {
   product: Product;
 }
 
-const ProductCard: React.FC<Props> = ({ product }) => {
+function ProductCard ({ product } : Props) {
   return (
     <div className={styles.productCard}>
       <div className={`p-9 border ${styles.cardContent}`}>

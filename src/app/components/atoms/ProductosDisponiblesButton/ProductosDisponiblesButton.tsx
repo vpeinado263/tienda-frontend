@@ -6,7 +6,7 @@ interface ProductosDisponiblesButtonProps {
   onClick: () => void;
 }
 
-const ProductosDisponiblesButton: React.FC<ProductosDisponiblesButtonProps> = ({ onClick }) => {
+function ProductosDisponiblesButton({ onClick } : ProductosDisponiblesButtonProps) {
   const [productosDisponibles, setProductosDisponibles] = useState<number>(0);
 
   useEffect(() => {
