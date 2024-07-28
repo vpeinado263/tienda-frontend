@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos CSS
 interface EliminarProductoButtonProps {
   productId: string;
   onProductDeleted: () => void; 
-  className?: string;
 }
 
 const EliminarProductoButton: React.FC<EliminarProductoButtonProps> = ({ productId, onProductDeleted }) => {
