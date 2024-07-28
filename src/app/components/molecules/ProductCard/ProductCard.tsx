@@ -28,7 +28,11 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         <div className={styles.texto}>
         <p className={styles.texto1}>Descripción: {product.description}</p>
         <p className={styles.texto1}>Cantidad disponible: {product.quantity}</p>
-        <WhatsapButton/>
+        <button className={styles.comprar}>
+          Comprar
+          <WhatsapButton/>
+        </button>
+        
         </div>
       </div>
     </div>
