@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Footer from '../app/components/organisms/Footer/footer';
 
 class MyDocument extends Document {
   render() {
