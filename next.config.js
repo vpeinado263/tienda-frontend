@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
