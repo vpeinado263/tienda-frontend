@@ -8,17 +8,40 @@ const CreateProductForm = () => {
     name: '',
     description: '',
     price: 0,
-    imageUrl: '',
-    quantity: 0
+    imageUrls: [''],
+    quantity: 0,
   });
   const [error, setError] = useState<string>('');
   const router = useRouter(); 
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index?: number) => {
     const { name, value } = event.target;
+    if (name === 'imageUrls' && index !== undefined) {
+      const newImageUrls = [...product.imageUrls];
+      newImageUrls[index] = value;
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        imageUrls: newImageUrls,
+      }));
+    } else {
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        [name]: name === 'price' || name === 'quantity' ? parseFloat(value) : value,
+      }));
+    }
+  };
+
+  const addImageField = () => {
     setProduct((prevProduct) => ({
       ...prevProduct,
-      [name]: name === 'price' || name === 'quantity' ? parseFloat(value) : value
+      imageUrls: [...prevProduct.imageUrls, ''],
+    }));
+  };
+
+  const removeImageField = (index: number) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      imageUrls: prevProduct.imageUrls.filter((_, i) => i !== index),
     }));
   };
 
@@ -42,16 +65,16 @@ const CreateProductForm = () => {
             name: '',
             description: '',
             price: 0,
-            imageUrl: '',
-            quantity: 0
+            imageUrls: [''],
+            quantity: 0,
           });
           setError('');
-          router.push('https://tienda-x--swart.vercel.app/products/productListPage'); // Navega a la página de productos con useRouter
+          router.push('https://tienda-x--swart.vercel.app/products/productListPage');
         } else {
           setError(data.error || 'Error desconocido al crear el producto');
         }
       } else {
-        throw new Error('El numero del producto ya existe');
+        throw new Error('El número del producto ya existe');
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -69,7 +92,7 @@ const CreateProductForm = () => {
       <h2 className={styles.formTitle}>Prenda de vestir</h2>
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="_id">Numero del Producto</label>
+          <label className={styles.formLabel} htmlFor="_id">Número del Producto</label>
           <input
             className={styles.formInput}
             type="text"
@@ -80,7 +103,7 @@ const CreateProductForm = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="name">Titulo de la prenda</label>
+          <label className={styles.formLabel} htmlFor="name">Título de la prenda</label>
           <input
             className={styles.formInput}
             type="text"
@@ -112,15 +135,33 @@ const CreateProductForm = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="imageUrl">Pegar Direccion de Imagen</label>
-          <input
-            className={styles.formInput}
-            type="text"
-            id="imageUrl"
-            name="imageUrl"
-            value={product.imageUrl}
-            onChange={handleChange}
-          />
+          <label className={styles.formLabel} htmlFor="imageUrls">Direcciones de Imágenes</label>
+          {product.imageUrls.map((url, index) => (
+            <div key={index} className={styles.imageUrlInput}>
+              <input
+                className={styles.formInput}
+                type="text"
+                id={`imageUrls-${index}`}
+                name="imageUrls"
+                value={url}
+                onChange={(e) => handleChange(e, index)}
+              />
+              <button
+                type="button"
+                className={styles.removeButton}
+                onClick={() => removeImageField(index)}
+              >
+                Eliminar
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            className={styles.addButton}
+            onClick={addImageField}
+          >
+            Agregar Imagen
+          </button>
         </div>
         <div className={styles.formGroup}>
           <label className={styles.formLabel} htmlFor="quantity">Cantidad</label>
@@ -141,4 +182,3 @@ const CreateProductForm = () => {
 };
 
 export default CreateProductForm;
-
