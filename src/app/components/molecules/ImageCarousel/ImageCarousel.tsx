@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import styles from './ImageCarousel.module.css';
 
@@ -6,8 +6,28 @@ interface ImageCarouselProps {
   images: string[];
 }
 
-function ImageCarousel  ({ images } : ImageCarouselProps) {
+function ImageCarousel({ images }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    if (touchStartX.current && touchEndX.current) {
+      const difference = touchStartX.current - touchEndX.current;
+      if (Math.abs(difference) > 50) {
+        if (difference > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -18,10 +38,11 @@ function ImageCarousel  ({ images } : ImageCarouselProps) {
   };
 
   return (
-    <div className={styles.carouselContainer}>
-      <button className={styles.carouselButton} onClick={prevSlide}>
-        &lt;
-      </button>
+    <div
+      className={styles.carouselContainer}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className={styles.imageWrapper}>
         <Image
           src={images[currentIndex]}
@@ -31,11 +52,9 @@ function ImageCarousel  ({ images } : ImageCarouselProps) {
           className={styles.image}
         />
       </div>
-      <button className={styles.carouselButton} onClick={nextSlide}>
-        &gt;
-      </button>
     </div>
   );
-};
+}
 
 export default ImageCarousel;
+
