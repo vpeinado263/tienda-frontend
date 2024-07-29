@@ -10,7 +10,7 @@ interface Props {
 
 function WhatsapButton ( {message} : Props ) {
 
-  const phoneNumber = "+5426124022016";
+  const phoneNumber = "+542612448018";
   const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
   return (
