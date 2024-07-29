@@ -8,7 +8,10 @@ interface Props {
   product: Product;
 }
 
-const ProductCard: React.FC<Props> = ({ product }) => {
+function ProductCard ({ product } : Props) {
+
+const whatsappMessage = `¿Hola Janni esta diponible?: ${product.name}`;
+
   return (
     <div className={styles.productCard}>
       <div className={`p-9 border ${styles.cardContent}`}>
@@ -22,7 +25,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
           <p className={styles.texto1}>Cantidad disponible: {product.quantity}</p>
           <button className={styles.comprar}>
             Comprar &rarr;
-            <WhatsapButton />
+            <WhatsapButton message={whatsappMessage} />
           </button>
         </div>
       </div>

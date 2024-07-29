@@ -6,7 +6,7 @@ interface ImageCarouselProps {
   images: string[];
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
+function ImageCarousel  ({ images } : ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {

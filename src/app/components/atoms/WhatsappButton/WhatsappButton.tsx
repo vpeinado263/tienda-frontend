@@ -3,12 +3,20 @@ import styles from './WhatsappButon.module.css'
 import Link from "next/link";
 import Image from 'next/image';
 
+interface Props {
+  message: string;
+}
 
-const WhatsapButton = () => {
+
+function WhatsapButton ( {message} : Props ) {
+
+  const phoneNumber = "+5426124022016";
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
   return (
     <>
       <button>
-        <Link href={'https://api.whatsapp.com/send?phone=+542612402016&text=Encargue:'} className={styles.float}>
+        <Link href={whatsappLink} className={styles.float}>
         <div className="w-16 h-16">
           <Image src="/icon/whatsapp.svg" alt="Chat " width={300} height={100}  />
         </div>
@@ -18,4 +26,4 @@ const WhatsapButton = () => {
   );
 };
 
-export default WhatsapButton ;
+export default WhatsapButton;
