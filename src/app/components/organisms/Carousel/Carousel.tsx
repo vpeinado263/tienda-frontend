@@ -32,6 +32,9 @@ const Carousel = () => {
     <>
       <div className={styles.carouselContainer}>
         <div className='relative'>
+          <button className={styles.carouselButton + ' ' + styles.buttonLeft + ' absolute top-1/2 transform -translate-y-1/2 left-0 z-10'} onClick={prevSlide}>
+            &lt;
+          </button>
           <div>
             <Image src={images[currentIndex]} 
             alt={`Slide ${currentIndex + 1}`} 
@@ -40,6 +43,9 @@ const Carousel = () => {
             className={styles.imagecarousel}
             />
           </div>
+          <button className={styles.carouselButton + ' ' + styles.buttonRight + ' absolute top-1/2 transform -translate-y-1/2 right-0 z-10'} onClick={nextSlide}>
+            &gt;
+          </button>
         </div>
       </div>
     </>
