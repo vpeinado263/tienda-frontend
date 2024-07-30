@@ -1,11 +1,11 @@
 /* StoreButton.module.css */
 .storeButton {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   text-align: center;
-  background-color: #0070f3;
+  background-color: linear-gradient(to right, #521e1e, #000000, #020202, #923232);
   color: white;
-  border-radius: 8px;
+  border-radius: 1rem;
   transition: background-color 0.3s, transform 0.3s;
   text-decoration: none;
   cursor: pointer;
@@ -13,26 +13,26 @@
 }
 
 .buttonOn {
-  background-color: #005bb5;
+  background-color: linear-gradient(to right, #521e1e, #000000, #020202, #923232);
 }
 
 .buttonOff {
-  background-color: #0070f3;
+  background-color: linear-gradient(to right, #521e1e, #000000, #020202, #923232);
 }
 
 .storeButton:hover {
-  background-color: #005bb5;
+  background-color: linear-gradient(to right, #521e1e, #000000, #000000, #9e0707);
   transform: scale(1.05);
 }
 
 .storeButton:active {
-  background-color: #003f7f;
+  background-color: linear-gradient(to right, #521e1e, #000000, #020202, #923232);
   transform: scale(0.95);
 }
 
 .storeButton:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.5);
+  box-shadow: 0 0 0 3px rgba(15, 15, 15, 0.5);
 }
 
 /* Estilos específicos para dispositivos móviles */
@@ -44,7 +44,9 @@
   }
 
   .storeButton img {
-    width: 50px;
+    width: 8rem;
     height: auto;
+    text-align: center;
+    display: inline-block;
   }
 }
