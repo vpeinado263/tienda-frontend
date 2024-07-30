@@ -1,14 +1,15 @@
 import React from 'react';
-import Image from 'next/image';
+import styles from './Spinner.module.css';
 
 const Spinner = () => {
   return (
-    <div>
-    <Image src="/spinner.png" alt="Loading..." width={400} height={300} />
+    <div className={styles.spinnerContainer}>
+      <div className={styles.spinner}>
+      </div>
+      <p className={styles.loadingText}>Cargando, por favor espera...</p>
     </div>
   );
 };
 
 export default Spinner;
-
 

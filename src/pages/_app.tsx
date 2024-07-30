@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
-import { RingLoader } from 'react-spinners';
+import Spinner from '../app/components/atoms/Spinner/Spinner'; // Verifica que la ruta sea correcta
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,23 +9,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 10000);
+
+    return () => clearTimeout(timer); // Cleanup the timer
   }, []);
 
   return (
     <>
-      {loading && (
-        <div className="spinner-container">
-          <RingLoader color={'white'} loading={true} />
-        </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <Component {...pageProps} />
+          <ToastContainer />
+        </>
       )}
-      {!loading && <Component {...pageProps} />}
-      <ToastContainer/>
     </>
   );
 }
 
 export default MyApp;
-

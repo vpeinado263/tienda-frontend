@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './StoreButton.module.css';
 import Image from 'next/image';
 
 const StoreButton = () => {
   const [isOn, setIsOn] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const toggleColor = () => {
@@ -16,25 +17,31 @@ const StoreButton = () => {
     return () => clearInterval(interval); 
   }, []);
 
+  const handleClick = () => {
+    router.push('/');
+  };
+
   return (
-    <Link href="/" passHref>
-      <div className={styles.storeButton}>
-        <button
-          className={`${styles.button} ${isOn ? styles.buttonOn : styles.buttonOff}`}
-          aria-label="Botón de tienda">
-          <Image
-            src="/LogoColorFloating.png"
-            alt="Logo de la tienda"
-            width={80}
-            height={270} // Ajusta esto según el tamaño de la imagen
-            priority
-          />
-        </button>
-      </div>
-    </Link>
+    <div
+      className={`${styles.storeButton} ${isOn ? styles.buttonOn : styles.buttonOff}`}
+      aria-label="Botón de tienda"
+      onClick={handleClick}
+      role="button"
+      tabIndex={0}
+      onKeyPress={(e) => {
+        if (e.key === 'Enter') handleClick();
+      }}
+    >
+      <Image
+        src="/LogoColorFloating.png"
+        alt="Logo de la tienda"
+        width={80}
+        height={270}
+        priority
+      />
+    </div>
   );
 };
 
 export default StoreButton;
-
 

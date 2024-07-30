@@ -12,7 +12,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       console.log('Haciendo solicitud a la API...');
-      const response = await axios.get('https://mi-back-end.onrender.com/api/products');
+      const response = await axios.get('https://mi-back-end.onrender.com/api/products', { timeout: 10000});
       
       if (response.status === 200 && response.data.success) {
         console.log('Respuesta de la API:', response);
