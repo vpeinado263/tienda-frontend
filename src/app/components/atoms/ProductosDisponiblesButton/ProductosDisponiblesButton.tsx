@@ -6,8 +6,9 @@ interface ProductosDisponiblesButtonProps {
   onClick: () => void;
 }
 
-function ProductosDisponiblesButton({ onClick } : ProductosDisponiblesButtonProps) {
-  const [productosDisponibles, setProductosDisponibles] = useState<number>(0);
+function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps) {
+  const [productosDisponibles, setProductosDisponibles] = useState<number | null>(null); // Usar null para representar que aún no se ha cargado
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchProductosDisponibles = async () => {
@@ -26,20 +27,29 @@ function ProductosDisponiblesButton({ onClick } : ProductosDisponiblesButtonProp
         } else {
           console.error('Error desconocido:', error);
         }
+      } finally {
+        setLoading(false); // Deja de mostrar el spinner cuando la carga haya terminado
       }
     };
 
     fetchProductosDisponibles();
-  }, []); 
+  }, []);
 
   return (
     <button className={styles.disponible} onClick={onClick}>
-      <span className={styles.span}>Productos Disponibles</span> {productosDisponibles}
+      {loading ? (
+        <div className={styles.spinner}></div> // Mostrar el spinner mientras se carga
+      ) : (
+        <>
+          <span className={styles.span}>Productos Disponibles</span> {productosDisponibles}
+        </>
+      )}
     </button>
   );
 };
 
 export default ProductosDisponiblesButton;
+
 
 
 
