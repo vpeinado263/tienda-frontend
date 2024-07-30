@@ -8,8 +8,6 @@
   border-radius: 1rem;
   transition: background-color 0.3s, transform 0.3s;
   text-decoration: none;
-  cursor: pointer;
-  user-select: none;
 }
 
 .buttonOn {
@@ -27,7 +25,7 @@
 
 .storeButton:active {
   background-color: linear-gradient(to right, #521e1e, #000000, #020202, #923232);
-  transform: scale(0.95);
+  transform: scale(0.90);
 }
 
 .storeButton:focus {
@@ -35,18 +33,3 @@
   box-shadow: 0 0 0 3px rgba(15, 15, 15, 0.5);
 }
 
-/* Estilos específicos para dispositivos móviles */
-@media (max-width: 600px) {
-  .storeButton {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2em;
-  }
-
-  .storeButton img {
-    width: 8rem;
-    height: auto;
-    text-align: center;
-    display: inline-block;
-  }
-}

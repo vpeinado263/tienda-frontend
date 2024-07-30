@@ -41,7 +41,8 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
         <div className={styles.spinnerr}></div> // Mostrar el spinner mientras se carga
       ) : (
         <>
-          <span className={styles.span}>Productos Disponibles</span> {productosDisponibles}
+          <span className={styles.span}>Productos Disponibles</span> 
+          {productosDisponibles}
         </>
       )}
     </button>
