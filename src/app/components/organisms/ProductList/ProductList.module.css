@@ -1,6 +1,37 @@
 /* ProductList.module.css */
-@media (max-width: 300px) { /* Ajusta este valor según tus necesidades */
-    .hidden-mobile {
-      display: none;
-    }
-  }
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.loadingText {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+.errorText {
+  color: #e74c3c;
+  font-size: 1.2em;
+}

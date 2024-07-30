@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
-import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton'; // Importar el botón de eliminar
+import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
 import { Product } from '../../../../typings/Product';
+import styles from './ProductList.module.css';
+
 
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -38,12 +40,22 @@ const ProductList = () => {
   };
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return (
+      <div className={styles.spinnerContainer}>
+        <div className={styles.spinner}></div>
+        <p className={styles.loadingText}>Cargando productos...</p>
+      </div>
+    );
   }
-
+  
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <div className={styles.errorContainer}>
+        <p className={styles.errorText}>{error}</p>
+      </div>
+    );
   }
+  
 
   return (
     <div>
