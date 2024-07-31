@@ -1,3 +1,4 @@
+// src/templates/ImageUpload.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
@@ -7,32 +8,27 @@ const ImageUpload = () => {
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files![0];
     setFile(selectedFile);
   };
 
-  // Manejar el envío del formulario
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!file) return;
 
     setUploading(true);
 
-    // Crear FormData para enviar el archivo
     const formData = new FormData();
     formData.append('file', file);
 
     try {
-      // Enviar la imagen al endpoint de subida
       const response = await axios.post('/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      // Obtener la URL de la imagen subida
       setUploadedImageUrl(response.data.url);
     } catch (error) {
       console.error('Error uploading image:', error);
@@ -51,7 +47,7 @@ const ImageUpload = () => {
       {uploadedImageUrl && (
         <div>
           <h2>Uploaded Image:</h2>
-          <Image src={uploadedImageUrl} alt="Uploaded" />
+          <Image src={uploadedImageUrl} alt="Uploaded" width={500} height={500} />
         </div>
       )}
     </div>
@@ -59,3 +55,4 @@ const ImageUpload = () => {
 };
 
 export default ImageUpload;
+
