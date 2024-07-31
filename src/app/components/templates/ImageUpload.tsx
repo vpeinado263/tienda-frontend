@@ -1,4 +1,3 @@
-// src/components/ImageUpload.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
@@ -8,7 +7,7 @@ const ImageUpload = () => {
   const [uploading, setUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
 
-  // Manejar el cambio en el input de archivo
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files![0];
     setFile(selectedFile);

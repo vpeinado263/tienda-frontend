@@ -1,4 +1,3 @@
-// En tu archivo api/upload.ts (o .js si no estás usando TypeScript)
 import { NextApiRequest, NextApiResponse } from 'next';
 import cloudinary from 'cloudinary';
 
