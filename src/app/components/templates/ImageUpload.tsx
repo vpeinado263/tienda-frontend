@@ -1,38 +1,62 @@
+// src/components/ImageUpload.tsx
 import React, { useState } from 'react';
+import axios from 'axios';
+import Image from 'next/image';
 
-const ImageUpload: React.FC = () => {
+const ImageUpload = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [imageUrl, setImageUrl] = useState<string>('');
+  const [uploading, setUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFile(e.target.files[0]);
-    }
+  // Manejar el cambio en el input de archivo
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files![0];
+    setFile(selectedFile);
   };
 
-  const handleUpload = async () => {
+  // Manejar el envío del formulario
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!file) return;
 
+    setUploading(true);
+
+    // Crear FormData para enviar el archivo
     const formData = new FormData();
-    formData.append('image', file);
+    formData.append('file', file);
 
-    const response = await fetch('/api/upload', {
-      method: 'POST',
-      body: formData,
-    });
+    try {
+      // Enviar la imagen al endpoint de subida
+      const response = await axios.post('/api/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-    const data = await response.json();
-    setImageUrl(data.url);
+      // Obtener la URL de la imagen subida
+      setUploadedImageUrl(response.data.url);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    } finally {
+      setUploading(false);
+    }
   };
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload Image</button>
-      {imageUrl && <img src={imageUrl} alt="Uploaded" />}
+      <h1>Upload Image</h1>
+      <input type="file" onChange={handleChange} />
+      <button onClick={handleSubmit} disabled={uploading}>
+        {uploading ? 'Uploading...' : 'Upload Image'}
+      </button>
+      {uploadedImageUrl && (
+        <div>
+          <h2>Uploaded Image:</h2>
+          <Image src={uploadedImageUrl} alt="Uploaded" />
+        </div>
+      )}
     </div>
   );
 };
 
 export default ImageUpload;
-

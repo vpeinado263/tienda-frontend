@@ -1,4 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+// En tu archivo api/upload.ts (o .js si no estás usando TypeScript)
+import { NextApiRequest, NextApiResponse } from 'next';
 import cloudinary from 'cloudinary';
 
 cloudinary.v2.config({
@@ -7,29 +8,19 @@ cloudinary.v2.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: '10mb', // Limit file size
-    },
-  },
-};
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    try {
-      const fileStr = req.body.data;
-      const uploadResponse = await cloudinary.v2.uploader.upload(fileStr, {
-        folder: 'mi_carpeta',
-      });
+    const { data } = req.body;
 
-      console.log('Upload response:', uploadResponse);
-      res.status(200).json({ secure_url: uploadResponse.secure_url });
+    try {
+      const uploadResponse = await cloudinary.v2.uploader.upload(data, {
+        upload_preset: 'ml_default',
+      });
+      res.status(200).json(uploadResponse);
     } catch (error) {
-      console.error('Error uploading image:', error);
-      res.status(500).json({ error: 'Error uploading image' });
+      res.status(400).json({ error: 'Error uploading image', details: error });
     }
   } else {
-    res.status(405).json({ error: 'Method not allowed' });
+    res.status(405).json({ message: 'Method not allowed' });
   }
 }
