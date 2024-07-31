@@ -8,12 +8,15 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "https://mi-back-end.onrender.com/api/$1",
+      "headers": {
+        "x-override-host": "mi-back-end.onrender.com"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "rewrites": [
-      { "source": "/api/(.*)", "destination": "/api/$1" }
-   ]
-  
+  ]
 }

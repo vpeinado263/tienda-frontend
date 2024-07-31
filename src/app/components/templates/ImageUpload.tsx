@@ -27,7 +27,7 @@ const ImageUpload = () => {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-        timeout: 10000,
+        timeout: 30000,
       });
 
       if (response.status === 200 && response.data.url) {
