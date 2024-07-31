@@ -1,5 +1,6 @@
-// next.config.mjs
-export default {
+/** @type {import('next').NextConfig} */
+
+const NextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -12,12 +13,6 @@ export default {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'http2.mlstatic.com',
         port: '',
         pathname: '/**',
@@ -25,3 +20,5 @@ export default {
     ],
   },
 };
+
+export default NextConfig;
