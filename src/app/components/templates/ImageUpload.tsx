@@ -16,19 +16,19 @@ const ImageUpload = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!file) return;
-
+  
     setUploading(true);
-
+  
     const formData = new FormData();
     formData.append('file', file);
-
+  
     try {
       const response = await axios.post('/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-
+  
       setUploadedImageUrl(response.data.url);
     } catch (error) {
       console.error('Error uploading image:', error);
@@ -36,6 +36,7 @@ const ImageUpload = () => {
       setUploading(false);
     }
   };
+  
 
   return (
     <div>
