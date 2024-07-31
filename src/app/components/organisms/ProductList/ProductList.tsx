@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
@@ -10,7 +10,8 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchProducts = async (retryCount = 3) => {
+  // Usar useCallback para memoizar la función fetchProducts
+  const fetchProducts = useCallback(async (retryCount = 3) => {
     try {
       console.log('Haciendo solicitud a la API...');
       const response = await axios.get('https://mi-back-end.onrender.com/api/products', { timeout: 10000 });
@@ -33,11 +34,11 @@ const ProductList = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []); // Asegúrate de pasar las dependencias necesarias
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]); // Agregar fetchProducts como dependencia
 
   const handleProductDeleted = () => {
     fetchProducts();
