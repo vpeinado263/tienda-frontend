@@ -5,8 +5,8 @@ import Image from 'next/image';
 const images = [
   '/images/imgCarousel/prendas.webp',
   '/images/imgCarousel/prendas1.webp',
-  '/images/imgCarousel/prendas2.webp',
-  '/images/imgCarousel/prendas3.webp',
+  'https://res.cloudinary.com/dnimaxhyf/image/upload/v1722381739/samples/shoe.jpg',
+  'https://res.cloudinary.com/dnimaxhyf/image/upload/v1722381739/samples/balloons.jpg',
 ];
 
 const Carousel = () => {
