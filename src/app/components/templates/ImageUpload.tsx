@@ -1,56 +1,58 @@
-// src/templates/ImageUpload.tsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import Image from 'next/image';
 
 const ImageUpload = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [uploading, setUploading] = useState(false);
-  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null); // Para mostrar la imagen subida
+  const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files![0];
-    setFile(selectedFile);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setFile(event.target.files[0]);
+    }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!file) return;
-  
-    setUploading(true);
-  
+  const handleUpload = async () => {
+    if (!file) {
+      setError('Por favor, selecciona un archivo para subir.');
+      return;
+    }
+
     const formData = new FormData();
-    formData.append('file', file);
-  
+    formData.append('file', file); // Asegúrate de que el nombre del campo coincida con el del backend
+
     try {
-      const response = await axios.post('/api/upload', formData, {
+      const response = await axios.post('https://mi-back-end.onrender.com/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        timeout: 10000,
       });
-  
-      setUploadedImageUrl(response.data.url);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    } finally {
-      setUploading(false);
+
+      if (response.status === 200 && response.data.url) {
+        console.log('Imagen subida con éxito:', response.data);
+        setImageUrl(response.data.url); // Mostrar la imagen subida
+        setError(null); 
+      } else {
+        console.error('Error inesperado al subir la imagen:', response.data);
+        setError('Error inesperado al subir la imagen.');
+      }
+    } catch (err: any) {
+      console.error('Error al subir la imagen:', err);
+      if (err.response) {
+        setError(`Error al subir la imagen: ${err.response.data.message}`);
+      } else {
+        setError('Error al subir la imagen. Por favor, inténtalo de nuevo más tarde.');
+      }
     }
   };
-  
 
   return (
     <div>
-      <h1>Upload Image</h1>
-      <input type="file" onChange={handleChange} />
-      <button onClick={handleSubmit} disabled={uploading}>
-        {uploading ? 'Uploading...' : 'Upload Image'}
-      </button>
-      {uploadedImageUrl && (
-        <div>
-          <h2>Uploaded Image:</h2>
-          <Image src={uploadedImageUrl} alt="Uploaded" width={500} height={500} />
-        </div>
-      )}
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Subir Imagen</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {imageUrl && <img src={imageUrl} alt="Uploaded" style={{ marginTop: '10px', maxWidth: '100%' }} />}
     </div>
   );
 };

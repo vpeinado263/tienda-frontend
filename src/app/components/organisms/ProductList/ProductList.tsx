@@ -5,16 +5,15 @@ import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarP
 import { Product } from '../../../../typings/Product';
 import styles from './ProductList.module.css';
 
-
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchProducts = async () => {
+  const fetchProducts = async (retryCount = 3) => {
     try {
       console.log('Haciendo solicitud a la API...');
-      const response = await axios.get('https://mi-back-end.onrender.com/api/products', { timeout: 10000});
+      const response = await axios.get('https://mi-back-end.onrender.com/api/products', { timeout: 10000 });
       
       if (response.status === 200 && response.data.success) {
         console.log('Respuesta de la API:', response);
@@ -24,8 +23,13 @@ const ProductList = () => {
         setError('Datos inesperados recibidos de la API');
       }
     } catch (err) {
-      console.error('Error al obtener productos:', err);
-      setError('Error al obtener productos');
+      if (retryCount > 0) {
+        console.warn(`Error al obtener productos, reintentando... (${retryCount} reintentos restantes)`);
+        fetchProducts(retryCount - 1);
+      } else {
+        console.error('Error al obtener productos:', err);
+        setError('Error al obtener productos. Intente nuevamente más tarde.');
+      }
     } finally {
       setLoading(false);
     }
@@ -47,7 +51,7 @@ const ProductList = () => {
       </div>
     );
   }
-  
+
   if (error) {
     return (
       <div className={styles.errorContainer}>
@@ -55,7 +59,6 @@ const ProductList = () => {
       </div>
     );
   }
-  
 
   return (
     <div>
