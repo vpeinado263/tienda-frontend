@@ -29,7 +29,7 @@ const NavBar = () => {
       </div>
       <div className={styles.bottom}>
         <Link href="/upload/upload">
-          <AgregarProductoButton/>
+          <button>CARGAR IMAGEN</button>
         </Link>
       </div>
     </div>

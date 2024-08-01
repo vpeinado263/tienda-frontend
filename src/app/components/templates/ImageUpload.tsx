@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ImageUpload = () => {
+const ImageUpload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [imageUrl, setImageUrl] = useState<string>('');
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [uploading, setUploading] = useState<boolean>(false);
 
-  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      setFile(event.target.files[0]);
     }
   };
 
-  const onUpload = async () => {
+  const handleUpload = async () => {
     if (!file) {
-      alert('Por favor, selecciona un archivo primero.');
+      alert('No file selected');
       return;
     }
+
+    setUploading(true);
 
     const formData = new FormData();
     formData.append('file', file);
@@ -23,22 +26,28 @@ const ImageUpload = () => {
     try {
       const response = await axios.post('https://mi-back-end.onrender.com/api/upload', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
-      setImageUrl(response.data.file.secure_url);
+      // Assuming the response contains the URL of the uploaded image
+      const { secure_url } = response.data.file;
+      setImageUrl(secure_url);
     } catch (error) {
-      console.error('Error al subir el archivo:', error);
-      alert('Hubo un error al subir el archivo.');
+      console.error('Error uploading file:', error);
+      alert('Error uploading file');
+    } finally {
+      setUploading(false);
     }
   };
 
   return (
     <div>
-      <input type="file" onChange={onFileChange} />
-      <button onClick={onUpload}>Subir Imagen</button>
-      {imageUrl && <img src={imageUrl} alt="Imagen subida" />}
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+      <button onClick={handleUpload} disabled={uploading}>
+        {uploading ? 'Uploading...' : 'Upload Image'}
+      </button>
+      {imageUrl && <img src={imageUrl} alt="Uploaded" style={{ marginTop: '20px', maxWidth: '100%' }} />}
     </div>
   );
 };
