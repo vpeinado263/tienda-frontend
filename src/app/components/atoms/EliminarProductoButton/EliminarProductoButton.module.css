@@ -1,27 +1,5 @@
-.buttoneliminar {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    background-color: #f30800;
-    color: white;
-    border: none;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: background-color 0.4s ease;
-  }
-  
-  .buttoneliminar:hover {
-    background-color: #d3534f;
-  }
-  
-  @media (max-width: 300px) { 
-    .buttoneliminar {
+@media screen and (max-width: 768px) {
+    .eliminar {
       display: none;
     }
-  }
-
-  @media (max-width: 768px) {
-  .buttoneliminar {
-    display: none;
-   }
-   
   }

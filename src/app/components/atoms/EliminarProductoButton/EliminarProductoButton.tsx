@@ -1,15 +1,16 @@
 import React from 'react';
 import axiosInstance from '../../../../utils/axiosInstance';
-import styles from './EliminarProductoButton.module.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styles from './EliminarProductoButton.module.css';
 
 interface EliminarProductoButtonProps {
   productId: string;
   onProductDeleted: () => void; 
+  className?: string; 
 }
 
-function EliminarProductoButton({ productId, onProductDeleted } : EliminarProductoButtonProps) {
+function EliminarProductoButton({ productId, onProductDeleted }: EliminarProductoButtonProps) {
   const handleDelete = async () => {
     try {
       const response = await axiosInstance.delete(`/api/products/${productId}`);
@@ -31,11 +32,15 @@ function EliminarProductoButton({ productId, onProductDeleted } : EliminarProduc
   };
 
   return (
-    <button className={styles.buttoneliminar} onClick={handleDelete}>
+    <div className={styles.eliminar}>
+       <button 
+      className="bg-red-600 text-white rounded-md text-base font-semibold py-2 px-4 shadow-md transition-transform transform hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+      onClick={handleDelete}
+    >
       Eliminar Producto
     </button>
+    </div>
   );
-};
+}
 
 export default EliminarProductoButton;
-

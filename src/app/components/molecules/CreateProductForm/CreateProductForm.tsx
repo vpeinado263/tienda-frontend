@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from './CreateProductForm.module.css';
 
 const CreateProductForm = () => {
   const [product, setProduct] = useState({
@@ -88,13 +87,13 @@ const CreateProductForm = () => {
   };
 
   return (
-    <div className={styles.formContainer}>
-      <h2 className={styles.formTitle}>Prenda de vestir</h2>
+    <div className="max-w-lg mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold text-center text-black">Prenda de vestir</h2>
       <form onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="_id">Número del Producto</label>
+        <div className="mb-4">
+          <label className="block mb-1 font-bold" htmlFor="_id">Número del Producto</label>
           <input
-            className={styles.formInput}
+            className="w-full p-2 border border-gray-300 rounded"
             type="text"
             id="_id"
             name="_id"
@@ -102,10 +101,10 @@ const CreateProductForm = () => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="name">Título de la prenda</label>
+        <div className="mb-4">
+          <label className="block mb-1 font-bold" htmlFor="name">Título de la prenda</label>
           <input
-            className={styles.formInput}
+            className="w-full p-2 border border-gray-300 rounded"
             type="text"
             id="name"
             name="name"
@@ -113,20 +112,20 @@ const CreateProductForm = () => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="description">Descripción General</label>
+        <div className="mb-4">
+          <label className="block mb-1 font-bold" htmlFor="description">Descripción General</label>
           <textarea
-            className={styles.formInput}
+            className="w-full p-2 border border-gray-300 rounded"
             id="description"
             name="description"
             value={product.description}
             onChange={handleChange}
           ></textarea>
         </div>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="price">Precio</label>
+        <div className="mb-4">
+          <label className="block mb-1 font-bold" htmlFor="price">Precio</label>
           <input
-            className={styles.formInput}
+            className="w-full p-2 border border-gray-300 rounded"
             type="number"
             id="price"
             name="price"
@@ -134,12 +133,12 @@ const CreateProductForm = () => {
             onChange={handleChange}
           />
         </div>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="imageUrls">Direcciones de Imágenes</label>
+        <div className="mb-4">
+          <label className="block mb-1 font-bold" htmlFor="imageUrls">Direcciones de Imágenes</label>
           {product.imageUrls.map((url, index) => (
-            <div key={index} className={styles.imageUrlInput}>
+            <div key={index} className="flex items-center mb-2">
               <input
-                className={styles.formInput}
+                className="w-full p-2 border border-gray-300 rounded"
                 type="text"
                 id={`imageUrls-${index}`}
                 name="imageUrls"
@@ -148,7 +147,7 @@ const CreateProductForm = () => {
               />
               <button
                 type="button"
-                className={styles.removeButton}
+                className="ml-2 p-1 bg-red-500 text-white rounded hover:bg-red-600"
                 onClick={() => removeImageField(index)}
               >
                 Eliminar
@@ -157,16 +156,16 @@ const CreateProductForm = () => {
           ))}
           <button
             type="button"
-            className={styles.addButton}
+            className="mt-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
             onClick={addImageField}
           >
             Agregar Imagen
           </button>
         </div>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="quantity">Cantidad</label>
+        <div className="mb-4">
+          <label className="block mb-1 font-bold" htmlFor="quantity">Cantidad</label>
           <input
-            className={styles.formInput}
+            className="w-full p-2 border border-gray-300 rounded"
             type="number"
             id="quantity"
             name="quantity"
@@ -174,8 +173,8 @@ const CreateProductForm = () => {
             onChange={handleChange}
           />
         </div>
-        {error && <p className={styles.errorMessage}>{error}</p>}
-        <button className={styles.formButton} type="submit">Crear Producto</button>
+        {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+        <button className="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600" type="submit">Crear Producto</button>
       </form>
     </div>
   );

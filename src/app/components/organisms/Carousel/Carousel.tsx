@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import styles from './Carousel.module.css';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
@@ -27,26 +26,30 @@ const Carousel = () => {
   }, []);
 
   return (
-    <>
-      <div className={styles.carouselContainer}>
-        <div className='relative'>
-          <button className={styles.carouselButton + ' ' + styles.buttonLeft + ' absolute top-1/2 transform -translate-y-1/2 left-0 z-10'} onClick={prevSlide}>
-            &lt;
-          </button>
-          <div>
-            <Image src={images[currentIndex]} 
-            alt={`Slide ${currentIndex + 1}`} 
-            width={500} height={300} 
-            priority 
-            className={styles.imagecarousel}
-            />
-          </div>
-          <button className={styles.carouselButton + ' ' + styles.buttonRight + ' absolute top-1/2 transform -translate-y-1/2 right-0 z-10'} onClick={nextSlide}>
-            &gt;
-          </button>
-        </div>
+    <div className="relative w-full max-w-4xl mx-auto">
+      <button
+        className="absolute top-1/2 transform -translate-y-1/2 left-0 z-10 bg-gray-700 text-white p-2 rounded-full shadow-md hover:bg-gray-800 transition"
+        onClick={prevSlide}
+      >
+        &lt;
+      </button>
+      <div className="overflow-hidden">
+        <Image
+          src={images[currentIndex]}
+          alt={`Slide ${currentIndex + 1}`}
+          width={500}
+          height={300}
+          priority
+          className="w-full h-auto object-cover"
+        />
       </div>
-    </>
+      <button
+        className="absolute top-1/2 transform -translate-y-1/2 right-0 z-10 bg-gray-700 text-white p-2 rounded-full shadow-md hover:bg-gray-800 transition"
+        onClick={nextSlide}
+      >
+        &gt;
+      </button>
+    </div>
   );
 };
 

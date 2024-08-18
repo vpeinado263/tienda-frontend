@@ -3,7 +3,6 @@ import axios from 'axios';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
 import { Product } from '../../../../typings/Product';
-import styles from './ProductList.module.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -15,7 +14,7 @@ const ProductList = () => {
     try {
       console.log('Haciendo solicitud a la API...');
       const response = await axios.get('https://mi-back-end.onrender.com/api/products', { timeout: 10000 });
-      
+
       if (response.status === 200 && response.data.success) {
         console.log('Respuesta de la API:', response);
         setProducts(response.data.data);
@@ -46,30 +45,31 @@ const ProductList = () => {
 
   if (loading) {
     return (
-      <div className={styles.spinnerContainer}>
-        <div className={styles.spinner}></div>
-        <p className={styles.loadingText}>Cargando productos...</p>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="border-t-4 border-blue-500 border-dashed rounded-full w-16 h-16 animate-spin"></div>
+        <p className="mt-4 text-lg text-gray-600">Cargando productos...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className={styles.errorContainer}>
-        <p className={styles.errorText}>{error}</p>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <p className="text-lg text-red-600">{error}</p>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
-          <div key={product._id}>
+          <div key={product._id} className="relative">
             <ProductCard product={product} />
             <EliminarProductoButton
               productId={product._id}
               onProductDeleted={handleProductDeleted}
+              className="absolute top-2 right-2"
             />
           </div>
         ))}

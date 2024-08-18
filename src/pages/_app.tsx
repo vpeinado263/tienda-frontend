@@ -1,8 +1,8 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
-import Spinner from '../app/components/atoms/Spinner/Spinner'; // Verifica que la ruta sea correcta
+import Spinner from '../app/components/atoms/Spinner/Spinner';
 import { ToastContainer } from 'react-toastify';
+import 'tailwindcss/tailwind.css'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -19,7 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+          <Spinner />
+        </div>
       ) : (
         <>
           <Component {...pageProps} />

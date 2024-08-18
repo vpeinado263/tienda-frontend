@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './ProductCard.module.css';
 import { Product } from '../../../../typings/Product';
 import WhatsapButton from '../../atoms/WhatsappButton/WhatsappButton';
 import ImageCarousel from '../../molecules/ImageCarousel/ImageCarousel';
@@ -8,29 +7,35 @@ interface Props {
   product: Product;
 }
 
-function ProductCard ({ product } : Props) {
-
-const whatsappMessage = `¿Hola Janni esta diponible?: ${product.name}`;
+function ProductCard({ product }: Props) {
+  const whatsappMessage = `¿Hola Janni, está disponible?: ${product.name}`;
 
   return (
-    <div className={styles.productCard}>
-      <div className={`p-9 border ${styles.cardContent}`}>
-        <h2 className="text-lg font-bold">{product.name}</h2>
-        <p>Precio: ${product.price}</p>
+    <div className="p-6 border border-gray-200 rounded-lg shadow-md bg-white">
+      <div className="p-6">
+        <h2 className="text-xl font-bold mb-2">{product.name}</h2>
+        <p className="text-gray-700 mb-4">Precio: ${product.price}</p>
         {product.imageUrls && product.imageUrls.length > 0 && (
-          <ImageCarousel images={product.imageUrls} />
+          <div className="mb-4">
+            <ImageCarousel images={product.imageUrls} />
+          </div>
         )}
-        <div className={styles.texto}>
-          <p className={styles.texto1}>Descripción: {product.description}</p>
-          <p className={styles.texto1}>Cantidad disponible: {product.quantity}</p>
-          <button className={styles.comprar}>
-            Comprar &rarr;
-            <WhatsapButton message={whatsappMessage} />
-          </button>
+        <div className="mt-4">
+          <p className="text-gray-800 mb-2">Descripción: {product.description}</p>
+          <p className="text-gray-800 mb-4">Cantidad disponible: {product.quantity}</p>
+          <div className="flex items-center justify-between">
+            <button className="flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+              Comprar &rarr;
+              <span className="ml-2">
+                <WhatsapButton message={whatsappMessage} />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default ProductCard;
+

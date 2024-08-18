@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './NavBar.module.css';
 import Link from 'next/link';
 import StoreButton from '../../atoms/StoreButton/StoreButton';
 import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/ProductosDisponiblesButton';
 import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
+import AccountButton from '../../atoms/AccountButton/AccountButton';
 
 const NavBar = () => {
   const handleProductosDisponiblesClick = () => {
@@ -11,28 +11,28 @@ const NavBar = () => {
   };
 
   return (
-    <div className={styles.contenedor}>
-      <nav className={styles.nav}>
+    <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
+      <div className="flex items-center">
         <StoreButton />
-      </nav>
-      <div className={styles.bottom1}>
+      </div>
+      <div className="flex items-center">
         <Link href="/products/productListPage">
-          <span className={styles.section}>
-            <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick}/>
-          </span>
+          <div onClick={handleProductosDisponiblesClick}>
+          <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick}/>
+          </div>
         </Link>
       </div>
-      <div className={styles.bottom}>
+      <div className="flex items-center">
         <Link href="/create/create">
-          <AgregarProductoButton />
+          <div>
+            <AgregarProductoButton />
+          </div>
         </Link>
       </div>
-      <div className={styles.bottom}>
-        <Link href="/upload/upload">
-          <button>CARGAR IMAGEN</button>
-        </Link>
+      <div className="flex items-center">
+        <AccountButton />
       </div>
-    </div>
+    </nav>
   );
 };
 

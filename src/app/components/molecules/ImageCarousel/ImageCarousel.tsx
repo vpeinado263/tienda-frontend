@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-import styles from './ImageCarousel.module.css';
 
 interface ImageCarouselProps {
   images: string[];
@@ -39,22 +38,33 @@ function ImageCarousel({ images }: ImageCarouselProps) {
 
   return (
     <div
-      className={styles.carouselContainer}
+      className="relative flex items-center overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className={styles.imageWrapper}>
+      <div className="w-full h-80 flex justify-center items-center overflow-hidden">
         <Image
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
           width={500}
           height={300}
-          className={styles.image}
+          className="max-w-full max-h-full object-cover"
         />
       </div>
+      <button
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 cursor-pointer z-10 hover:bg-opacity-70"
+        onClick={prevSlide}
+      >
+        Prev
+      </button>
+      <button
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 cursor-pointer z-10 hover:bg-opacity-70"
+        onClick={nextSlide}
+      >
+        Next
+      </button>
     </div>
   );
 }
 
 export default ImageCarousel;
-

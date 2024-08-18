@@ -1,5 +1,4 @@
 import React from "react";
-import styles from './WhatsappButton.module.css'; // Asegúrate de que el nombre del archivo sea correcto
 import Link from "next/link";
 import Image from 'next/image';
 
@@ -7,17 +6,24 @@ interface Props {
   message: string;
 }
 
-function WhatsapButton({ message }: Props) {
+const WhatsapButton: React.FC<Props> = ({ message }) => {
   const phoneNumber = "+542612402016";
   const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
   return (
     <Link href={whatsappLink} passHref>
-      <span className={styles.float} role="button">
-        <div className="w-16 h-16">
-          <Image src="/icon/whatsapp.svg" alt="Chat" width={300} height={100} />
-        </div>
-      </span>
+      <div
+        className="absolute bottom-4 right-4 p-2 bg-white rounded-full flex items-center justify-center"
+        aria-label="WhatsApp Button"
+        role="button"
+      >
+        <Image
+          src="/icon/whatsapp.svg" // Asegúrate de que la ruta sea correcta
+          alt="Chat"
+          width={64} // Ajusta el tamaño según sea necesario
+          height={64} // Ajusta el tamaño según sea necesario
+        />
+      </div>
     </Link>
   );
 };
