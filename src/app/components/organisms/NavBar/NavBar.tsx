@@ -16,17 +16,13 @@ const NavBar = () => {
         <StoreButton />
       </div>
       <div className="flex items-center">
-        <Link href="/products/productListPage">
-          <div onClick={handleProductosDisponiblesClick}>
-          <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick}/>
-          </div>
+        <Link href="/products/productListPage" passHref>
+            <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick} />
         </Link>
       </div>
       <div className="flex items-center">
-        <Link href="/create/create">
-          <div>
+        <Link href="/create/create" passHref>
             <AgregarProductoButton />
-          </div>
         </Link>
       </div>
       <div className="flex items-center">
@@ -37,3 +33,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
