@@ -17,7 +17,7 @@ const RegisterUsers = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post<RegisterResponse>("/api/register", {
+      const response = await axios.post<RegisterResponse>("https://mi-back-end.onrender.com/api/users", {
         username,
         email,
         password,
