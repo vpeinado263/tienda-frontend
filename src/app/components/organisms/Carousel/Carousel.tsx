@@ -4,6 +4,8 @@ import Image from 'next/image';
 const images = [
   '/images/imgCarousel/prendas.webp',
   '/images/imgCarousel/prendas1.webp',
+  '/images/imgCarousel/prendas2.webp',
+  '/images/imgCarousel/prendas3.webp',
 ];
 
 const Carousel = () => {

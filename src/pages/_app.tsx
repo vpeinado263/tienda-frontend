@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       setLoading(false);
     }, 10000);
 
-    return () => clearTimeout(timer); // Cleanup the timer
+    return () => clearTimeout(timer); 
   }, []);
 
   return (

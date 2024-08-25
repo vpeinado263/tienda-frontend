@@ -5,7 +5,7 @@ const Spinner = () => {
     <div
       className="fixed inset-0 flex flex-col items-center justify-center bg-black text-white z-[9999] rounded-2xl p-4 md:p-8 bg-cover bg-center"
       style={{ 
-        backgroundImage: "url('/LogoWhiteFloating2.png')", 
+        backgroundImage: "url('/Tienda-x-2.png')", 
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center"

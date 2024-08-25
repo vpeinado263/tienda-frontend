@@ -9,7 +9,6 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Usar useCallback para memoizar la función fetchProducts
   const fetchProducts = useCallback(async (retryCount = 3) => {
     try {
       console.log('Haciendo solicitud a la API...');
@@ -33,11 +32,10 @@ const ProductList = () => {
     } finally {
       setLoading(false);
     }
-  }, []); // Asegúrate de pasar las dependencias necesarias
-
+  }, []); 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]); // Agregar fetchProducts como dependencia
+  }, [fetchProducts]); 
 
   const handleProductDeleted = () => {
     fetchProducts();

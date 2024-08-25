@@ -7,7 +7,7 @@ const StoreButton = () => {
     <Link href="/">
       <span className="flex items-center justify-center p-2 rounded-2xl transition-colors duration-300 ease-in-out bg-gradient-to-r from-gray-900 to-gray-700">
         <Image
-          src="/LogoColorFloating.png"
+          src="/Tienda-x-2.png"
           alt="Logo de la tienda"
           width={80}
           height={270}

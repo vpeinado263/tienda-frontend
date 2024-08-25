@@ -6,7 +6,7 @@ interface Props {
   message: string;
 }
 
-const WhatsapButton: React.FC<Props> = ({ message }) => {
+const WhatsapButton = ({ message } : Props) => {
   const phoneNumber = "+542612402016";
   const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
@@ -18,10 +18,10 @@ const WhatsapButton: React.FC<Props> = ({ message }) => {
         role="button"
       >
         <Image
-          src="/icon/whatsapp.svg" // Asegúrate de que la ruta sea correcta
+          src="/icon/whatsapp.svg" 
           alt="Chat"
-          width={64} // Ajusta el tamaño según sea necesario
-          height={64} // Ajusta el tamaño según sea necesario
+          width={64} 
+          height={64} 
         />
       </div>
     </Link>

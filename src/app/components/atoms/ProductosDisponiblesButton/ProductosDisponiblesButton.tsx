@@ -18,7 +18,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
         console.log('API response:', response);
         if (response.data && response.data.count !== undefined) {
           setProductosDisponibles(response.data.count);
-          setError(null); // Reset any previous errors
+          setError(null); 
         } else {
           setError('Unexpected API response format.');
         }
