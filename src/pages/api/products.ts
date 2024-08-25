@@ -7,14 +7,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(200).json(response.data);
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      // Manejo de errores específicos de axios
       const errorMessage = error.response?.data?.message || error.message;
-      console.error('Error fetching products:', errorMessage);
       res.status(error.response?.status || 500).json({ error: errorMessage });
     } else {
-      // Manejo de errores desconocidos
       console.error('Unexpected error:', error);
-      res.status(500).json({ error: 'Failed to fetch products' });
+      res.status(500).json({ error: 'Error al cargar Productos' });
     }
   }
 };
