@@ -11,7 +11,7 @@ function ProductCard({ product }: Props) {
   const whatsappMessage = `¿Hola, está disponible?: ${product.name}`;
 
   return (
-    <div className="p-6 border border-gray-200 rounded-lg shadow-md bg-white">
+    <div className="w-full max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="p-6">
         <h2 className="text-xl font-bold mb-2">{product.name}</h2>
         <p className="text-gray-700 mb-4">Precio: ${product.price}</p>
