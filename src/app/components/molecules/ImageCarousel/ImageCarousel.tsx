@@ -46,8 +46,8 @@ function ImageCarousel({ images }: ImageCarouselProps) {
         <Image
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
-          width={500}
-          height={300}
+          width={230}
+          height={10}
           className="max-w-full max-h-full object-cover"
         />
       </div>
