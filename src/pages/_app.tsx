@@ -1,20 +1,20 @@
 import type { AppProps } from 'next/app';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 // import Spinner from '../app/components/atoms/Spinner/Spinner';
 import { ToastContainer } from 'react-toastify';
 import 'tailwindcss/tailwind.css'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 10000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 10000);
 
-    return () => clearTimeout(timer); 
-  }, []);
+  //   return () => clearTimeout(timer); 
+  // }, []);
 
   return (
     <>
