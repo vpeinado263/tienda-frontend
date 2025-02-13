@@ -17,8 +17,15 @@ const NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        port: '',
+        pathname: '/uc', // Google Drive usa "/uc" en las URLs de descarga directa
+      },
     ],
   },
+  
 };
 
 export default NextConfig;
