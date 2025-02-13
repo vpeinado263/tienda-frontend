@@ -8,7 +8,7 @@ interface Props {
 }
 
 function ProductCard({ product }: Props) {
-  const whatsappMessage = `¿Hola Janni, está disponible?: ${product.name}`;
+  const whatsappMessage = `¿Hola, está disponible?: ${product.name}`;
 
   return (
     <div className="p-6 border border-gray-200 rounded-lg shadow-md bg-white">
