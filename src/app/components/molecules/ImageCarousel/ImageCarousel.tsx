@@ -52,16 +52,10 @@ function ImageCarousel({ images }: ImageCarouselProps) {
         />
       </div>
       <button
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 cursor-pointer z-10 hover:bg-opacity-70"
-        onClick={prevSlide}
-      >
-        Prev
-      </button>
-      <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 cursor-pointer z-10 hover:bg-opacity-70"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 z-10 hover:bg-opacity-70"
         onClick={nextSlide}
       >
-        Next
+        Siguiente
       </button>
     </div>
   );
