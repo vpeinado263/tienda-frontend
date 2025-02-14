@@ -1,5 +1,4 @@
 import React from 'react';
-import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
 // import Image from 'next/image';
 // import Link from 'next/link';
 
@@ -38,7 +37,6 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
         <div className="mb-4">
-          <AgregarProductoButton />
           {/* Puedes agregar contenido aquí si es necesario */}
         </div>
         {/* <div className="text-center">
