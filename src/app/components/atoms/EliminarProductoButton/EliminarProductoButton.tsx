@@ -2,7 +2,6 @@ import React from 'react';
 import axiosInstance from '../../../../utils/axiosInstance';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './EliminarProductoButton.module.css';
 
 interface EliminarProductoButtonProps {
   productId: string;
@@ -32,7 +31,7 @@ function EliminarProductoButton({ productId, onProductDeleted }: EliminarProduct
   };
 
   return (
-    <div className={styles.eliminar}>
+    <div>
        <button 
       className="bg-red-600 text-white rounded-md text-base font-semibold py-2 px-4 shadow-md transition-transform transform hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
       onClick={handleDelete}
