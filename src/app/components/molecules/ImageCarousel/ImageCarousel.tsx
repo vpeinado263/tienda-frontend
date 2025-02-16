@@ -42,11 +42,11 @@ function ImageCarousel({ images }: ImageCarouselProps) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="w-full h-80 flex justify-center items-center overflow-hidden">
+      <div className="w-full h-90 flex justify-center items-center overflow-hidden">
         <Image
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
-          width={150}
+          width={290}
           height={100}
           className="max-w-full max-h-full object-cover"
         />
