@@ -18,10 +18,10 @@ const WhatsapButton = ({ message } : Props) => {
         role="button"
       >
         <Image
-          src="/icon/whatsapp.svg" 
+          src="/whatsapp.svg" 
           alt="Chat"
-          width={64} 
-          height={64} 
+          width={50} 
+          height={50} 
         />
       </div>
     </Link>

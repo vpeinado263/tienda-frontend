@@ -1,9 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-// import StoreButton from '../../atoms/StoreButton/StoreButton';
 import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/ProductosDisponiblesButton';
-import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
-// import AccountButton from '../../atoms/AccountButton/AccountButton';
 
 const NavBar = () => {
   const handleProductosDisponiblesClick = () => {
@@ -12,22 +9,11 @@ const NavBar = () => {
 
   return (
     <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
-      {/* <div className="flex items-center">
-        <StoreButton />
-      </div> */}
       <div className="flex items-center">
         <Link href="/products/productListPage" passHref>
             <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick} />
         </Link>
       </div>
-      <div className="flex items-center">
-        <Link href="/create/create" passHref>
-            <AgregarProductoButton />
-        </Link>
-      </div>
-      {/* <div className="flex items-center">
-        <AccountButton />
-      </div> */}
     </nav>
   );
 };
