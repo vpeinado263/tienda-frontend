@@ -11,8 +11,7 @@ function ProductCard({ product }: Props) {
   const whatsappMessage = `¿Hola, está disponible ${product.name}?`;
 
   return (
-    <div>
-      <div className="p-2">
+      <div className="border border-gray-300 rounded-lg shadow-sm p-4">
         <h2 className="text-xl font-bold mb-2">{product.name}</h2>
         <p className="text-gray-700 mb-4">Precio: ${product.price}</p>
         {product.imageUrls && product.imageUrls.length > 0 && (<ImageCarousel images={product.imageUrls} />)}
@@ -26,7 +25,6 @@ function ProductCard({ product }: Props) {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
