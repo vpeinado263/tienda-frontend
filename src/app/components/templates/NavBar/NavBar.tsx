@@ -10,9 +10,7 @@ const NavBar = () => {
   return (
     <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
       <div className="flex items-center">
-        <Link href="/products/productListPage" passHref>
-            <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick} />
-        </Link>
+        <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick} />
       </div>
     </nav>
   );

@@ -19,11 +19,7 @@ function ImageCarousel({ images }: ImageCarouselProps) {
     if (touchStartX.current && touchEndX.current) {
       const difference = touchStartX.current - touchEndX.current;
       if (Math.abs(difference) > 50) {
-        if (difference > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
+        difference > 0 ? nextSlide() : prevSlide();
       }
     }
   };
@@ -38,26 +34,45 @@ function ImageCarousel({ images }: ImageCarouselProps) {
 
   return (
     <div
-      className="relative flex items-center overflow-hidden"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <div className="w-full h-90 flex justify-center items-center overflow-hidden">
-        <Image
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          width={290}
-          height={100}
-          className="max-w-full max-h-full object-cover"
-        />
-      </div>
-      <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 z-10 hover:bg-opacity-70"
-        onClick={nextSlide}
-      >
-        Siguiente
-      </button>
+    className="relative w-full max-w-md mx-auto overflow-hidden"
+    onTouchStart={handleTouchStart}
+    onTouchEnd={handleTouchEnd}
+  >
+    <div className="w-full h-60 flex justify-center items-center">
+      <Image
+        src={images[currentIndex]}
+        alt={`Imagen ${currentIndex + 1}`}
+        width={300}
+        height={180}
+        className="object-cover rounded-lg shadow-md"
+      />
     </div>
+
+    <button
+      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+      onClick={prevSlide}
+      aria-label="Imagen anterior"
+    >
+      ◀
+    </button>
+    <button
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+      onClick={nextSlide}
+      aria-label="Imagen siguiente"
+    >
+      ▶
+    </button>
+    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      {images.map((_, index) => (
+        <span
+          key={index}
+          className={`w-3 h-3 rounded-full transition-all ${
+            index === currentIndex ? 'bg-blue-500 scale-125' : 'bg-gray-300'
+          }`}
+        />
+      ))}
+    </div>
+  </div>
   );
 }
 

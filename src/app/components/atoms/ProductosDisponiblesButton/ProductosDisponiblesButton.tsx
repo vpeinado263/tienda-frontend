@@ -13,9 +13,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
   useEffect(() => {
     const fetchProductosDisponibles = async () => {
       try {
-        console.log('Fetching product count...');
         const response = await axiosInstance.get('/api/products/count');
-        console.log('API response:', response);
         if (response.data && response.data.count !== undefined) {
           setProductosDisponibles(response.data.count);
           setError(null); 
@@ -39,8 +37,8 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
   }, []);
 
   return (
-    <button
-      className={`flex items-center gap-2 px-4 py-2 text-white rounded-md bg-gray-800 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-300 ${loading ? 'cursor-wait' : 'cursor-pointer'}`}
+    <div
+      className={`flex items-center gap-2 px-4 py-2 text-white rounded-md bg-gray-800 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-300 ${loading ? 'cursor-wait' : 'cursor-pointer'}`}
       onClick={onClick}
       aria-label="Productos disponibles"
     >
@@ -54,7 +52,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
           <span>{productosDisponibles}</span>
         </>
       )}
-    </button>
+    </div>
   );
 }
 
