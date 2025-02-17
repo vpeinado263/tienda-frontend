@@ -37,7 +37,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
   }, []);
 
   return (
-    <div
+    <button
       className={`flex items-center gap-2 px-4 py-2 text-white rounded-md bg-gray-800 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-300 ${loading ? 'cursor-wait' : 'cursor-pointer'}`}
       onClick={onClick}
       aria-label="Productos disponibles"
@@ -52,7 +52,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
           <span>{productosDisponibles}</span>
         </>
       )}
-    </div>
+    </ button>
   );
 }
 
