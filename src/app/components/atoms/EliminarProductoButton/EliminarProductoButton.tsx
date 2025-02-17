@@ -33,10 +33,10 @@ function EliminarProductoButton({ productId, onProductDeleted }: EliminarProduct
   return (
     <div className="hidden md:block">
        <button 
-      className="bg-red-600 text-white rounded-md text-base font-semibold py-2 px-4 shadow-md transition-transform transform hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+      className="bg-red-300 text-white rounded-md text-base font-semibold py-2 px-4 shadow-md transition-transform transform hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
       onClick={handleDelete}
     >
-      Eliminar Producto
+      Eliminar
     </button>
     </div>
   );
