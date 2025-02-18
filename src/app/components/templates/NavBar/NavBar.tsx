@@ -6,7 +6,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between p-4 bg-gray-900 text-white">
+    <nav>
       <div className="flex items-center">
         <ProductosDisponiblesButton onClick={handleProductosDisponiblesClick} />
       </div>
