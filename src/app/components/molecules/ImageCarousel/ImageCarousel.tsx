@@ -47,21 +47,6 @@ function ImageCarousel({ images }: ImageCarouselProps) {
         className="object-cover rounded-lg shadow-md"
       />
     </div>
-
-    <button
-      className="absolute left-0 top-1/2 transform -translate-y-1/2 text-black rounded-full"
-      onClick={prevSlide}
-      aria-label="Imagen anterior"
-    >
-      ◀
-    </button>
-    <button
-      className="absolute right-0 top-1/2 transform -translate-y-1/2 text-black rounded-full"
-      onClick={nextSlide}
-      aria-label="Imagen siguiente"
-    >
-      ▶
-    </button>
     <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
       {images.map((_, index) => (
         <span
