@@ -38,12 +38,12 @@ function ImageCarousel({ images }: ImageCarouselProps) {
     onTouchStart={handleTouchStart}
     onTouchEnd={handleTouchEnd}
   >
-    <div className="w-full h-60 flex justify-center items-center">
+    <div className="w-full h-30 flex justify-center items-center">
       <Image
         src={images[currentIndex]}
         alt={`Imagen ${currentIndex + 1}`}
-        width={300}
-        height={180}
+        width={150}
+        height={200}
         className="object-cover rounded-lg shadow-md"
       />
     </div>
