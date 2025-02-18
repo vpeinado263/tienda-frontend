@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <main style={{ backgroundImage: "url('/image.png')" }}>
+      <main>
       <div className="flex items-center">
         <Link href="/create/create" passHref>
             <AgregarProductoButton />
