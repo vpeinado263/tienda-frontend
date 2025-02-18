@@ -34,15 +34,15 @@ function ImageCarousel({ images }: ImageCarouselProps) {
 
   return (
     <div
-    className="relative w-full max-w-md mx-auto overflow-hidden"
+    className="relative mx-auto overflow-hidden"
     onTouchStart={handleTouchStart}
     onTouchEnd={handleTouchEnd}
   >
-    <div className="w-full flex justify-center items-center">
+    <div className="flex justify-center items-center h-[500px]">
       <Image
         src={images[currentIndex]}
         alt={`Imagen ${currentIndex + 1}`}
-        width={150}
+        width={300}
         height={200}
         className="object-cover rounded-lg shadow-md"
       />
