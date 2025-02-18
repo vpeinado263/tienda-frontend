@@ -38,7 +38,7 @@ function ImageCarousel({ images }: ImageCarouselProps) {
     onTouchStart={handleTouchStart}
     onTouchEnd={handleTouchEnd}
   >
-    <div className="w-full h-30 flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <Image
         src={images[currentIndex]}
         alt={`Imagen ${currentIndex + 1}`}
@@ -49,14 +49,14 @@ function ImageCarousel({ images }: ImageCarouselProps) {
     </div>
 
     <button
-      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+      className="absolute left-0 top-1/2 transform -translate-y-1/2 text-black rounded-full"
       onClick={prevSlide}
       aria-label="Imagen anterior"
     >
       ◀
     </button>
     <button
-      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+      className="absolute right-0 top-1/2 transform -translate-y-1/2 text-black rounded-full"
       onClick={nextSlide}
       aria-label="Imagen siguiente"
     >
