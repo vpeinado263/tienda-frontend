@@ -13,16 +13,10 @@ const NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'http2.mlstatic.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'drive.google.com',
         port: '',
-        pathname: '/uc', // Google Drive usa "/uc" en las URLs de descarga directa
-      },
+        pathname: '/uc', 
+      }
     ],
   },
   
