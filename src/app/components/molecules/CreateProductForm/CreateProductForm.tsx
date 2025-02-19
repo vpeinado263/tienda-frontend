@@ -68,7 +68,7 @@ const CreateProductForm = () => {
             quantity: 0,
           });
           setError('');
-          router.push('https://tienda-x--swart.vercel.app/products/productListPage');
+          router.push('https://tienda-x--swart.vercel.app/productPage');
         } else {
           setError(data.error || 'Error desconocido al crear el producto');
         }
