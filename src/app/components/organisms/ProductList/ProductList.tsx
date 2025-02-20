@@ -3,6 +3,8 @@ import axios from 'axios';
 import ProductCard from '../../molecules/ProductCard/ProductCard';
 import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
 import { Product } from '../../../../typings/Product';
+import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
+import Link from 'next/link';
 
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -60,7 +62,12 @@ const ProductList = () => {
 
   return (
     <div>
-      <div >
+      <div className="flex items-center">
+        <Link href="/create/create" passHref>
+            <AgregarProductoButton />
+        </Link>
+      </div>
+      <div>
         {products.map((product) => (
           <div key={product._id} className="relative">
             <ProductCard product={product} />
