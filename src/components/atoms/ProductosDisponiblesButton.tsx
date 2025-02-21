@@ -23,7 +23,6 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
       } catch (error) {
         if (error instanceof Error) {
           console.error('Error al obtener la cantidad de productos disponibles:', error.message);
-          setError('No hay productos.');
         } else {
           console.error('Error desconocido:', error);
           setError('Error desconocido.');
