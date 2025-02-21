@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import ProductCard from '../../molecules/ProductCard/ProductCard';
-import EliminarProductoButton from '../../atoms/EliminarProductoButton/EliminarProductoButton';
-import { Product } from '../../../../typings/Product';
-import AgregarProductoButton from '../../atoms/AgregarProductoButton/AgregarProductoButton';
+import ProductCard from '../../components/molecules/ProductCard';
+import EliminarProductoButton from '../../components/atoms/EliminarProductoButton';
+import { Product } from '../../../src/typings/Product';
+import AgregarProductoButton from '../../components/atoms/AgregarProductoButton';
 import Link from 'next/link';
 
 const ProductList = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductosDisponiblesButton from '../../atoms/ProductosDisponiblesButton/ProductosDisponiblesButton';
+import ProductosDisponiblesButton from '../atoms/ProductosDisponiblesButton'
 
 const NavBar = () => {
   const handleProductosDisponiblesClick = () => {

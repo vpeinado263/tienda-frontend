@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import EliminarProductoButton from '../../../src/app/components/atoms/EliminarProductoButton/EliminarProductoButton';
+import EliminarProductoButton from '../../components/atoms/EliminarProductoButton';
+
+
 const DeleteProductPage = () => {
   const [productId, setProductId] = useState('');
   const handleProductDeleted = () => {

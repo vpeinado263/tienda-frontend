@@ -1,10 +1,10 @@
 import React from "react";
-import CreateProductForm from "../../app/components/molecules/CreateProductForm/CreateProductForm";
+import CreateProductForm from "../../components/molecules/CreateProductForm";
 
 const create = () => {
     return (
         <>
-         <CreateProductForm/>
+         <CreateProductForm />
         </>
     );
 };

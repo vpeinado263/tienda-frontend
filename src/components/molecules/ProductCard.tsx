@@ -1,7 +1,7 @@
 import React from 'react';
-import { Product } from '../../../../typings/Product';
-import WhatsapButton from '../../atoms/WhatsappButton/WhatsappButton';
-import ImageCarousel from '../../molecules/ImageCarousel/ImageCarousel';
+import { Product } from '../../../src/typings/Product';
+import WhatsapButton from '../../components/atoms/WhatsappButton';
+import ImageCarousel from '../../components/molecules/ImageCarousel';
 
 interface Props {
   product: Product;

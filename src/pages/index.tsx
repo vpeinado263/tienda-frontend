@@ -1,6 +1,6 @@
 import React from 'react';
-import ProductList from '../app/components/organisms/ProductList/ProductList';
-import NavBar from '../app/components/templates/NavBar/NavBar';
+import ProductList from '../components/organisms/ProductList';
+import NavBar from '../components/organisms/NavBar';
 
 const Home = () => {
 
