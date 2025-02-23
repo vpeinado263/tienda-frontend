@@ -10,7 +10,7 @@ class MyDocument extends Document {
         <meta name="description" content="Encuentra lo que necesitas a precios accesibles." />
   
         {/* SEO & Redes Sociales */}
-        <meta property="og:title" content="Venta de Garaje Online" />
+        <meta property="og:title" content="Venta Online" />
         <meta property="og:description" content="Compra y vende artículos de segunda mano ." />
         <meta property="og:image" content="/images/favicon.ico" />
         <meta property="og:url" content="https://tienda-x--swart.vercel.app/" />
