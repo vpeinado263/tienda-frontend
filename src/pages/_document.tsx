@@ -7,13 +7,13 @@ class MyDocument extends Document {
         <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Compra y vende artículos de segunda mano desde la comodidad de tu hogar. Encuentra lo que necesitas a precios accesibles." />
+        <meta name="description" content="Encuentra lo que necesitas a precios accesibles." />
   
         {/* SEO & Redes Sociales */}
         <meta property="og:title" content="Venta de Garaje Online" />
-        <meta property="og:description" content="Compra y vende artículos de segunda mano desde la comodidad de tu hogar." />
-        <meta property="og:image" content="/images/preview.jpg" />
-        <meta property="og:url" content="https://tu-sitio.com" />
+        <meta property="og:description" content="Compra y vende artículos de segunda mano ." />
+        <meta property="og:image" content="/images/favicon.ico" />
+        <meta property="og:url" content="https://tienda-x--swart.vercel.app/" />
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* Fuentes y favicon */}
