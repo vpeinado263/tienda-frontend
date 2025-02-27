@@ -48,9 +48,6 @@ const ProductList = () => {
           setError('Datos inesperados recibidos de la API');
         }
       })
-      .catch(err => {
-        setError('Error al obtener productos. Intente nuevamente más tarde.');
-      })
       .finally(() => setLoading(false));
   };
 
