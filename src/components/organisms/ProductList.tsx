@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axiosInstance from '../../utils/axiosInstance';
 import ProductCard from '../../components/molecules/ProductCard';
 import EliminarProductoButton from '../../components/atoms/EliminarProductoButton';
 import { Product } from '../../../src/typings/Product';
@@ -11,41 +11,53 @@ const ProductList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchProducts = useCallback(async (retryCount = 3) => {
-    try {
-      console.log('Haciendo solicitud a la API...');
-      const response = await axios.get('https://mi-back-end.onrender.com/api/products', { timeout: 10000 });
-
-      if (response.status === 200 && response.data.success) {
-        console.log('Respuesta de la API:', response);
-        setProducts(response.data.data);
-      } else {
-        console.error('Datos inesperados:', response.data);
-        setError('Datos inesperados recibidos de la API');
-      }
-    } catch (err) {
-      if (retryCount > 0) {
-        console.warn(`Error al obtener productos, reintentando... (${retryCount} reintentos restantes)`);
-        fetchProducts(retryCount - 1);
-      } else {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        console.log('Haciendo solicitud a la API...');
+        const response = await axiosInstance.get('/api/products');
+        
+        if (response.status === 200 && response.data.success) {
+          console.log('Respuesta de la API:', response);
+          setProducts(response.data.data);
+        } else {
+          console.error('Datos inesperados:', response.data);
+          setError('Datos inesperados recibidos de la API');
+        }
+      } catch (err) {
         console.error('Error al obtener productos:', err);
         setError('Error al obtener productos. Intente nuevamente más tarde.');
+      } finally {
+        setLoading(false);
       }
-    } finally {
-      setLoading(false);
-    }
-  }, []); 
-  useEffect(() => {
+    };
+    
     fetchProducts();
-  }, [fetchProducts]); 
+  }, []);
 
   const handleProductDeleted = () => {
-    fetchProducts();
+    setLoading(true);
+    setError(null);
+    setProducts([]);
+    
+    axiosInstance.get('/api/products')
+      .then(response => {
+        if (response.status === 200 && response.data.success) {
+          setProducts(response.data.data);
+        } else {
+          setError('Datos inesperados recibidos de la API');
+        }
+      })
+      .catch(err => {
+        setError('Error al obtener productos. Intente nuevamente más tarde.');
+      })
+      .finally(() => setLoading(false));
   };
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
+        <p className="text-gray-600 text-center">El servidor puede tardar unos segundos en activarse...</p>
         <div className="border-t-4 border-blue-500 border-dashed rounded-full w-16 h-16 animate-spin"></div>
         <p className="mt-4 text-lg text-gray-600">Cargando productos...</p>
       </div>
@@ -64,7 +76,7 @@ const ProductList = () => {
     <div>
       <div className="flex items-center">
         <Link href="/create/create" passHref>
-            <AgregarProductoButton />
+          <AgregarProductoButton />
         </Link>
       </div>
       <div>

@@ -3,16 +3,15 @@ import axiosRetry from 'axios-retry';
 
 const axiosInstance = axios.create({
   baseURL: 'https://mi-back-end.onrender.com',
-  timeout: 5000, // Aumentado a 5 segundos para evitar fallos por latencia
+  timeout: 5000, 
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Configurar reintentos en caso de error de red o timeout
 axiosRetry(axiosInstance, { 
-  retries: 3, // Intentará hasta 3 veces
-  retryDelay: axiosRetry.exponentialDelay, // Aumenta la espera entre intentos
+  retries: 3, 
+  retryDelay: axiosRetry.exponentialDelay, 
 });
 
 axiosInstance.interceptors.response.use(
