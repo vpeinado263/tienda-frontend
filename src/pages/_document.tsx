@@ -12,14 +12,14 @@ class MyDocument extends Document {
         {/* SEO & Redes Sociales */}
         <meta property="og:title" content="Venta Online" />
         <meta property="og:description" content="Compra y vende artículos de segunda mano ." />
-        <meta property="og:image" content="/images/favicon.ico" />
+        <meta property="og:image" content="/images/file.svg" />
         <meta property="og:url" content="https://tienda-x--swart.vercel.app/" />
         <meta name="twitter:card" content="summary_large_image" />
 
-        {/* Fuentes y favicon */}
+        {/* Fuentes */}
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/file.svg" />
         </Head>
         <body>
           <Main />

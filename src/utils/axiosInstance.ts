@@ -3,7 +3,7 @@ import axiosRetry from 'axios-retry';
 
 const axiosInstance = axios.create({
   baseURL: 'https://mi-back-end.onrender.com',
-  timeout: 5000, 
+  timeout: 15000, 
   headers: {
     'Content-Type': 'application/json',
   },
