@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "module": "CommonJS",
     "esModuleInterop": true,
@@ -25,8 +25,7 @@
     ],
     "types": [
       "@types/node",
-      "@types/react",
-      "@types/react-router-dom" 
+      "@types/react"
     ]
   },
   "include": [
