@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 
 const NextConfig = {
+  turbopack: {},
+
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -9,17 +11,17 @@ const NextConfig = {
     }
     return config;
   },
+
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'drive.google.com',
         port: '',
-        pathname: '/uc', 
-      }
+        pathname: '/uc',
+      },
     ],
   },
-  
 };
 
 export default NextConfig;
