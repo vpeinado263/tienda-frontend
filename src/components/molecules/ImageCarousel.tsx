@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import Image from 'next/image';
+import React, { useState, useRef } from "react";
+import Image from "next/image";
 
 interface ImageCarouselProps {
   images: string[];
@@ -29,35 +29,37 @@ function ImageCarousel({ images }: ImageCarouselProps) {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
+    );
   };
 
   return (
     <div
-    className="relative mx-auto overflow-hidden"
-    onTouchStart={handleTouchStart}
-    onTouchEnd={handleTouchEnd}
-  >
-    <div className="flex justify-center items-center h-[500px]">
-      <Image
-        src={images[currentIndex]}
-        alt={`Imagen ${currentIndex + 1}`}
-        width={300}
-        height={200}
-        className="object-cover rounded-lg shadow-md"
-      />
-    </div>
-    <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-      {images.map((_, index) => (
-        <span
-          key={index}
-          className={`w-3 h-3 rounded-full transition-all ${
-            index === currentIndex ? 'bg-blue-500 scale-125' : 'bg-gray-300'
-          }`}
+      className="relative mx-auto overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className="flex justify-center items-center h-[500px]">
+        <Image
+          src={images[currentIndex]}
+          alt={`Imagen ${currentIndex + 1}`}
+          width={300}
+          height={200}
+          className="object-cover rounded-lg shadow-md"
         />
-      ))}
+      </div>
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentIndex ? "bg-blue-500 scale-125" : "bg-gray-300"
+            }`}
+          />
+        ))}
+      </div>
     </div>
-  </div>
   );
 }
 

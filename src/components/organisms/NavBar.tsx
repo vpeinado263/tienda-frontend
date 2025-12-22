@@ -1,9 +1,8 @@
-import React from 'react';
-import ProductosDisponiblesButton from '../atoms/ProductosDisponiblesButton'
+import React from "react";
+import ProductosDisponiblesButton from "../atoms/ProductosDisponiblesButton";
 
 const NavBar = () => {
-  const handleProductosDisponiblesClick = () => {
-  };
+  const handleProductosDisponiblesClick = () => {};
 
   return (
     <nav>
@@ -15,4 +14,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-

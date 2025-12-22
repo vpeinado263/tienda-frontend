@@ -1,31 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import axiosInstance from '../../utils/axiosInstance';
+import React, { useState, useEffect } from "react";
+import axiosInstance from "../../utils/axiosInstance";
 
 interface ProductosDisponiblesButtonProps {
   onClick: () => void;
 }
 
-function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps) {
-  const [productosDisponibles, setProductosDisponibles] = useState<number | null>(null);
+function ProductosDisponiblesButton({
+  onClick,
+}: ProductosDisponiblesButtonProps) {
+  const [productosDisponibles, setProductosDisponibles] = useState<
+    number | null
+  >(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProductosDisponibles = async () => {
       try {
-        const response = await axiosInstance.get('/api/products/count');
+        const response = await axiosInstance.get("/api/products/count");
         if (response.data && response.data.count !== undefined) {
           setProductosDisponibles(response.data.count);
-          setError(null); 
+          setError(null);
         } else {
-          setError('Unexpected API response format.');
+          setError("Unexpected API response format.");
         }
       } catch (error) {
         if (error instanceof Error) {
-          console.error('Error al obtener la cantidad de productos disponibles:', error.message);
+          console.error(
+            "Error al obtener la cantidad de productos disponibles:",
+            error.message,
+          );
         } else {
-          console.error('Error desconocido:', error);
-          setError('Error desconocido.');
+          console.error("Error desconocido:", error);
+          setError("Error desconocido.");
         }
       } finally {
         setLoading(false);
@@ -37,7 +44,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
 
   return (
     <button
-      className={`flex items-center gap-2 px-4 py-2 text-white rounded-md bg-gray-800 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-300 ${loading ? 'cursor-wait' : 'cursor-pointer'}`}
+      className={`flex items-center gap-2 px-4 py-2 text-white rounded-md bg-gray-800 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-300 ${loading ? "cursor-wait" : "cursor-pointer"}`}
       onClick={onClick}
       aria-label="Productos disponibles"
     >
@@ -51,7 +58,7 @@ function ProductosDisponiblesButton({ onClick }: ProductosDisponiblesButtonProps
           <span>{productosDisponibles}</span>
         </>
       )}
-    </ button>
+    </button>
   );
 }
 

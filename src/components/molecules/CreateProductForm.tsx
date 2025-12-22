@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const CreateProductForm = () => {
   const [product, setProduct] = useState({
-    _id: '',
-    name: '',
-    description: '',
+    _id: "",
+    name: "",
+    description: "",
     price: 0,
-    imageUrls: [''],
+    imageUrls: [""],
     quantity: 0,
   });
-  const [error, setError] = useState<string>('');
-  const router = useRouter(); 
+  const [error, setError] = useState<string>("");
+  const router = useRouter();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index?: number) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    index?: number,
+  ) => {
     const { name, value } = event.target;
-    if (name === 'imageUrls' && index !== undefined) {
+    if (name === "imageUrls" && index !== undefined) {
       const newImageUrls = [...product.imageUrls];
       newImageUrls[index] = value;
       setProduct((prevProduct) => ({
@@ -25,7 +28,8 @@ const CreateProductForm = () => {
     } else {
       setProduct((prevProduct) => ({
         ...prevProduct,
-        [name]: name === 'price' || name === 'quantity' ? parseFloat(value) : value,
+        [name]:
+          name === "price" || name === "quantity" ? parseFloat(value) : value,
       }));
     }
   };
@@ -33,7 +37,7 @@ const CreateProductForm = () => {
   const addImageField = () => {
     setProduct((prevProduct) => ({
       ...prevProduct,
-      imageUrls: [...prevProduct.imageUrls, ''],
+      imageUrls: [...prevProduct.imageUrls, ""],
     }));
   };
 
@@ -47,40 +51,45 @@ const CreateProductForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://mi-back-end.onrender.com/api/products', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        "https://mi-back-end.onrender.com/api/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
         },
-        body: JSON.stringify(product),
-      });
+      );
 
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          alert('Producto creado exitosamente');
+          alert("Producto creado exitosamente");
           setProduct({
-            _id: '',
-            name: '',
-            description: '',
+            _id: "",
+            name: "",
+            description: "",
             price: 0,
-            imageUrls: [''],
+            imageUrls: [""],
             quantity: 0,
           });
-          setError('');
-          router.push('https://tienda-x--swart.vercel.app/products/productPage');
+          setError("");
+          router.push(
+            "https://tienda-x--swart.vercel.app/products/productPage",
+          );
         } else {
-          setError(data.error || 'Error desconocido al crear el producto');
+          setError(data.error || "Error desconocido al crear el producto");
         }
       } else {
-        throw new Error('El número del producto ya existe');
+        throw new Error("El número del producto ya existe");
       }
     } catch (err) {
       if (err instanceof Error) {
         setError(`Error al crear el producto: ${err.message}`);
         console.error(err.message);
       } else {
-        setError('Error desconocido al crear el producto');
+        setError("Error desconocido al crear el producto");
         console.error(err);
       }
     }
@@ -91,7 +100,9 @@ const CreateProductForm = () => {
       <h2 className="text-2xl font-bold text-center text-black">Artículo</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block mb-1 font-bold" htmlFor="_id">Número del Producto</label>
+          <label className="block mb-1 font-bold" htmlFor="_id">
+            Número del Producto
+          </label>
           <input
             className="w-full p-2 border border-gray-300 rounded"
             type="text"
@@ -102,7 +113,9 @@ const CreateProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-bold" htmlFor="name">Título </label>
+          <label className="block mb-1 font-bold" htmlFor="name">
+            Título{" "}
+          </label>
           <input
             className="w-full p-2 border border-gray-300 rounded"
             type="text"
@@ -113,7 +126,9 @@ const CreateProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-bold" htmlFor="description">Descripción General</label>
+          <label className="block mb-1 font-bold" htmlFor="description">
+            Descripción General
+          </label>
           <textarea
             className="w-full p-2 border border-gray-300 rounded"
             id="description"
@@ -123,7 +138,9 @@ const CreateProductForm = () => {
           ></textarea>
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-bold" htmlFor="price">Precio</label>
+          <label className="block mb-1 font-bold" htmlFor="price">
+            Precio
+          </label>
           <input
             className="w-full p-2 border border-gray-300 rounded"
             type="number"
@@ -134,7 +151,9 @@ const CreateProductForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-bold" htmlFor="imageUrls">Dirección de Imágen</label>
+          <label className="block mb-1 font-bold" htmlFor="imageUrls">
+            Dirección de Imágen
+          </label>
           {product.imageUrls.map((url, index) => (
             <div key={index} className="flex items-center mb-2">
               <input
@@ -163,7 +182,9 @@ const CreateProductForm = () => {
           </button>
         </div>
         <div className="mb-4">
-          <label className="block mb-1 font-bold" htmlFor="quantity">Cantidad</label>
+          <label className="block mb-1 font-bold" htmlFor="quantity">
+            Cantidad
+          </label>
           <input
             className="w-full p-2 border border-gray-300 rounded"
             type="number"
@@ -174,7 +195,12 @@ const CreateProductForm = () => {
           />
         </div>
         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
-        <button className="w-full p-3 bg-green-500 text-white rounded hover:bg-green-600" type="submit">Crear Producto</button>
+        <button
+          className="w-full p-3 bg-green-500 text-white rounded hover:bg-green-600"
+          type="submit"
+        >
+          Crear Producto
+        </button>
       </form>
     </div>
   );

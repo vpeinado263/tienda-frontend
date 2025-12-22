@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import EliminarProductoButton from '../../components/atoms/EliminarProductoButton';
-
+import React, { useState } from "react";
+import EliminarProductoButton from "../../components/atoms/EliminarProductoButton";
 
 const DeleteProductPage = () => {
-  const [productId, setProductId] = useState('');
+  const [productId, setProductId] = useState("");
   const handleProductDeleted = () => {
-    console.log('Producto eliminado');
-    setProductId('');
+    console.log("Producto eliminado");
+    setProductId("");
   };
   return (
     <div>
-      <EliminarProductoButton productId={productId} onProductDeleted={handleProductDeleted} />
+      <EliminarProductoButton
+        productId={productId}
+        onProductDeleted={handleProductDeleted}
+      />
     </div>
   );
 };
