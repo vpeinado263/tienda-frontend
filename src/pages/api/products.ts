@@ -3,9 +3,7 @@ import axios from "axios";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const response = await axios.get(
-      `${process.env.BACKEND_URL}/api/products`
-    );    
+    const response = await axios.get(`${process.env.BACKEND_URL}/api/products`);
 
     if (Array.isArray(response.data)) {
       res.status(200).json({ count: response.data.length });
