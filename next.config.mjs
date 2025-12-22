@@ -1,20 +1,17 @@
 /** @type {import('next').NextConfig} */
-
-const NextConfig = {
-  webpack: (config) => {
-    return config;
+const nextConfig = {
+  experimental: {
+    turbo: false,
   },
-
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'drive.google.com',
-        port: '',
-        pathname: '/uc',
+        protocol: "https",
+        hostname: "drive.google.com",
+        pathname: "/uc",
       },
     ],
   },
 };
 
-export default NextConfig;
+export default nextConfig;
