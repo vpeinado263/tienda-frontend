@@ -1,14 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const NextConfig = {
-  turbopack: {},
-
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback = {
-        fs: false,
-      };
-    }
+  webpack: (config) => {
     return config;
   },
 
