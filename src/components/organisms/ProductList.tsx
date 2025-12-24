@@ -15,7 +15,7 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         console.log("Haciendo solicitud a la API...");
-        const response = await axiosInstance.get("/api/products");
+        const response = await axiosInstance.get("");
 
         if (response.status === 200 && response.data.success) {
           console.log("Respuesta de la API:", response);
@@ -41,7 +41,7 @@ const ProductList = () => {
     setProducts([]);
 
     axiosInstance
-      .get("/api/products")
+      .get("")
       .then((response) => {
         if (response.status === 200 && response.data.success) {
           setProducts(response.data.data);
